@@ -14,7 +14,7 @@ $list = $nguoichoi->get_distinct_user();
     <a href="<?php echo $_SERVER['REQUEST_URI']; ?>" class="btn btn-success"><i class="fa fa-refresh"></i> Tải lại</a>
     <a href="nguoichoi.html?act=0" class="btn btn-danger"><i class="fa fa-exclamation-circle"></i> Chưa duyệt</a>
     <a href="nguoichoi.html?act=1" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Đã duyệt</a>
-    <a href="get.nguoichoi.html?act=del_all" class="btn btn-default"><i class="fa fa-trash"></i> Xoá tất cả điểm chưa duyệt</a>
+    <a href="get.nguoichoi.html?act=del_all" class="btn btn-default" onclick="return confirm('Chắc chắn xóa? Xóa sẽ mất hết dữ liệu!');"><i class="fa fa-trash"></i> Xoá tất cả điểm chưa duyệt</a>
     <hr />
     <div class="panel-group" id="accordion">
         <?php foreach($list as $k => $v): ?>
@@ -108,7 +108,7 @@ $list = $nguoichoi->get_distinct_user();
                                         <?php endif; ?>
                                         <p class="image-caption">
                                             <i class="fa fa-heart"></i> <?php echo $diem['diem']; ?> &nbsp;&nbsp;&nbsp;
-                                            <a href="get.nguoichoi.html?id=<?php echo $diem['_id']; ?>&id_user=<?php echo $v; ?>&act=del" class="duyetnguoichoi" name="#diem_<?php echo $v;?>" onclick="return false;"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;&nbsp;
+                                            <a href="get.nguoichoi.html?id=<?php echo $diem['_id']; ?>&id_user=<?php echo $v; ?>&act=del#modal-xoanguoichoi" data-toggle="modal" class="xoanguoichoi" name="#diem_<?php echo $v;?>" onclick="return false;"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;&nbsp;
                                             <a href="get.nguoichoi.html?id=<?php echo $diem['_id']; ?>&id_user=<?php echo $v; ?>&act=xetduyet" class="duyetnguoichoi" name="#diem_<?php echo $v;?>" onclick="return false;"><i class="fa fa-check-square-o"></i></a>
                                         </p>
                                     </div>
@@ -128,13 +128,30 @@ $list = $nguoichoi->get_distinct_user();
         <?php endif; endforeach; ?>
     </div>
 </div>
+<div class="modal fade" id="modal-xoanguoichoi">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Chắc chắn xóa?</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <h3>Xóa dữ liệu sẽ mất, không thể khôi phục</h3>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <a href="#" class="btn btn-white" data-dismiss="modal"><i class="fa fa-close"></i> Không xóa</a>
+                <button type="submit" name="submit" data-dismiss="modal" id="xoanguoichoi_ok" class="btn btn-danger"><i class="fa fa-trash"></i> Đồng ý xóa</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div style="clear:both;"></div>
 <?php require_once('footer.php'); ?>
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
 <script src="assets/plugins/gritter/js/jquery.gritter.js"></script>
 <script src="assets/plugins/lightbox/js/lightbox.min.js"></script>
-
-
 <script src="assets/js/apps.min.js"></script>
 <!-- ====
 ============== END PAGE LEVEL JS ================== -->
@@ -148,6 +165,20 @@ $list = $nguoichoi->get_distinct_user();
                 _this.parents("div.image").fadeOut();
             });
         });
+
+        $(".xoanguoichoi").click(function(){
+            var _this = $(this); var _link = $(this).attr("href");
+            var form = $(this).attr("name");
+            $("#xoanguoichoi_ok").click(function(){
+                $.get(_link, function(diem){
+                    $(form).val(diem);
+                    _this.parents("div.image").fadeOut();
+
+                });
+            });
+            
+        });
+
         $(".xoadanhsachdiem").click(function(){
             var _this = $(this);
             var _link = $(this).attr("href");
