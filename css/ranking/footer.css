@@ -1,0 +1,282 @@
+.copyright img {
+    float: left;
+    margin-right: 15px
+}
+.copyright p {
+    margin-top: 8px
+}
+.link-footer {
+    overflow: hidden;
+    margin-top: 6px
+}
+.link-footer li {
+    margin-bottom: 10px;
+    float: left;
+    width: 90px
+}
+footer,
+footer a {
+    font-size: 12px;
+    font-family: "Robotesqa4F"
+}
+.custom-filter {
+    font-size: 13px
+}
+footer {
+    background: #222428;
+    padding: 20px 0 0;
+    overflow: hidden;
+    color: #fff;
+    position: relative;
+    z-index: 9999999;
+
+}
+footer .container {
+    background: #222428;
+    padding: 0 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+footer .row {
+    margin-bottom: 15px
+}
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-n-6,
+.col-7,
+.col-8,
+.col-9,
+.col-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 12px;
+    padding-right: 12px;
+    float: left
+}
+.col-2 {
+    padding-left: 12px;
+    width: 16.666666666667%
+}
+.col-2.col-2p5 {
+    width: 20%
+}
+.col-2.col-2p5.otr {
+    padding: 0 27px
+}
+.row.mb0.otr {
+    margin: 0 -24px
+}
+.col-3 {
+    padding-left: 12px;
+    width: 25%
+}
+.col-4 {
+    padding-left: 12px;
+    width: 33.333333333333%
+}
+.col-6 {
+    padding-left: 24px;
+    width: 50%
+}
+.col-n-6 {
+    padding-left: 12px;
+    width: 50%
+}
+.col-5 {
+    padding-left: 12px;
+    width: 41.666666666667%
+}
+.col-7 {
+    padding-left: 12px;
+    width: 58.333333333333%
+}
+.col-8 {
+    padding-left: 12px;
+    width: 66.666666666667%
+}
+.col-9 {
+    padding-left: 12px;
+    width: 75%
+}
+.col-6:first-child {
+    border-left: 0;
+    padding-left: 6px;
+    padding-right: 12px
+}
+.col-6.first-child {
+    padding-left: 6px
+}
+.col-6.last-child,
+.col-6:last-child {
+    padding-left: 12px;
+    padding-right: 6px
+}
+.col-12 {
+    padding-left: 12px;
+    width: 100%
+}
+
+footer .container {
+    max-width: 970px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative
+}
+.link-footer li a {
+    color: #ddd
+}
+
+/*********************************** RANING *******************/
+.nexo-frontpage-ranking .ranking-content{
+    max-width: 840px; margin: 0 auto; padding: 0px;
+    text-align: center;
+}
+.nexo-frontpage-ranking .home-ranking-content, .nexo-frontpage-ranking .ranking-canhan {
+    background:url('../../images/back_ranking_1.png') no-repeat;
+    height: 473px;max-width: 840px;
+}
+.nexo-frontpage-ranking .home-ranking-content a, .nexo-frontpage-ranking .ranking-cahan a{
+    float: right; margin: 0px 40px 0px 0px; color: #ffff00;
+}
+.nexo-frontpage-ranking .home-ranking-content h3,
+.nexo-frontpage-ranking .ranking-canhan h3 {
+    text-align:  center; padding:  10px 0px 0px 0px; margin: 0px;color: #ffff00;
+    font-size:  40px;
+}
+.nexo-frontpage-ranking .ranking-canhan ul{
+     margin: 10px 20px 5px 30px;list-style-type: none;
+}
+.nexo-frontpage-ranking .ranking-canhan a{
+    float: right; color:#ffff00; margin-right:50px;
+}
+.nexo-frontpage-ranking .home-ranking-content ul{
+    margin: 10px 20px 5px 30px;
+     -moz-column-count: 2;
+    -moz-column-gap: 10px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 10px;
+    column-count: 2;
+    column-gap: 10px;
+    list-style-type: none;
+}
+.btn-shopping{
+    background: #ffff00; margin: 5px;
+    font-size: 22px;
+    line-height: 40px;
+    font-family: "Robotesqa4F", Arial, sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+    border-radius: 5px;
+    color: #002f64;
+    box-shadow: inset 0 0 6px 1px #f79002;
+    background: #fd0;
+    background: linear-gradient(to bottom, #fd0 0, #fb0 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffdd00', endColorstr='#ffbb00', GradientType=0);
+    display: inline-block;
+    padding: 5px 20px 5px 20px;
+    width: auto; min-width:  150px;
+    border-bottom: 2px solid #f79002;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+.btn-shopping:hover{
+    color: #ff0000;text-decoration: none;
+}
+.nexo-frontpage-ranking .ranking-content ul li {
+    font-family: "Robotesqa4F", "Roboto";
+    background: #ffff00; margin: 5px;
+    font-size: 22px;
+    line-height: 40px;
+    font-family: "Robotesqa4F", Arial, sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+    border-radius: 5px;
+    color: #002f64;
+    box-shadow: inset 0 0 6px 1px #f79002;
+    background: #fd0;
+    background: linear-gradient(to bottom, #fd0 0, #fb0 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffdd00', endColorstr='#ffbb00', GradientType=0);
+    display: inline-block;
+    float: left;
+    padding: 5px 20px 5px 20px;
+    width: auto; min-width:  150px;
+    border-bottom: 2px solid #f79002;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+}
+.nexo-frontpage-ranking .ranking-content ul li a{
+    color: #000833;
+}
+.nexo-frontpage-ranking .ranking-canhan ul li{
+    width: 670px; padding: 3px; font-family: "Robotesqa4F", "Roboto";
+    font-size: 28px; border-bottom: 1px dotted #ccc;
+}
+.nexo-frontpage-ranking .home-ranking-content ul li{
+    width: 300px; padding: 1px; font-family: "Robotesqa4F", "Roboto";
+    font-size: 20px;
+}
+.nexo-frontpage-ranking .home-ranking-content ul li span,
+.nexo-frontpage-ranking .ranking-canhan ul li span{
+    float: right; 
+}
+
+.raking-canhan {
+    background-color: #ccc; margin-top:  40px;
+    width: 270px;
+    padding: 10px;
+}
+.raking-canhan ul {
+    list-style-type: none;
+    margin:  0px; padding:  0px;
+}
+.raking-canhan ul li{
+    width: 260px !important;
+    padding:  10px 0px 10px 0px;
+    margin: 0px !important;
+}
+@media screen and (max-width: 1024px) {
+    .nexo-frontpage-ranking .home-ranking-content,
+    .nexo-frontpage-ranking .ranking-canhan {
+        width: auto;
+        background:none;
+        border: 5px solid #ffff00;
+        height: auto;
+    }
+    .nexo-frontpage-ranking .home-ranking-content ul{
+        margin:  0px;
+    }
+    .nexo-frontpage-ranking .home-ranking-content ul li{
+        font-size: 15px;  width: 250px;
+    }
+    .nexo-frontpage-ranking .ranking-canhan ul{
+        padding: 0px;margin: 0px;
+    }
+    .nexo-frontpage-ranking .ranking-canhan ul li{
+        font-size: 15px; width: 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .nexo-frontpage-ranking .home-ranking-content ul{
+         -moz-column-count: 1;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 20px;
+        column-count: 1;
+        column-gap: 20px;
+        list-style-type: none;
+    }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}

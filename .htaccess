@@ -1,0 +1,4 @@
+RewriteEngine on
+ErrorDocument 404 /404.html
+RewriteRule ^(.+)\.html$ $1.php
+RewriteRule ^video/([0-9]+)/?$ video.php?id=$1

@@ -1,0 +1,17 @@
+.bold{
+	font-weight: bold;
+}
+.qrcode {
+	width: 354px;
+	margin:auto;
+	border:2px solid #000000;
+	font-size: 11px;
+	text-align:center;
+}
+
+.title_qrcode {
+	width: 354px;
+	margin:auto;
+	font-size: 11px;
+	text-align:center;	
+}
