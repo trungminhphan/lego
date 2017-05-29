@@ -37,7 +37,7 @@ if($start_date > $end_date){
 	//$list = $nguoichoi->get_hiepsituan(new MongoDate($start_date), new MongoDate($end_date), $arr_user);
 	if($arr_user_diem){
 		foreach($arr_user_diem as $key => $value){
-			if($key<20){
+			if($key<20 && $value['diem'] > 0){
 				array_push($arr_hiepsi, array('_id' => new MongoId(), 'id_user' => new MongoId($value['id_user']), 'diem' => intval($value['diem'])));
 			}
 		}

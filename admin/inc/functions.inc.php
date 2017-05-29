@@ -167,7 +167,7 @@ function sort_array_1($arrays, $orderby, $sortby){
   // Add $data as the last parameter, to sort by the common key
   $keys = array_keys($arrays);
   array_multisort(
-    $array_sort, $sortby, SORT_STRING,
+    $array_sort, $sortby, SORT_NUMERIC,
     $arrays, $keys
   );
   return $arrays;

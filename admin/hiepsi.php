@@ -46,7 +46,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
             if($arr_user){
                 $i=1;
                 foreach($arr_user as $k => $a){
-                    if($k < 20){
+                    if($k < 20 && $a['diem'] > 0){
                         $users->id = $a['id_user'];$u = $users->get_one();
                         echo '<tr>';
                         echo '<td>'.$i.'</td>';
