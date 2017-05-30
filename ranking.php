@@ -1,7 +1,7 @@
 <?php
 require_once('header.php');
+$nguoichoi = new NguoiChoi();
 if($users->isLoggedIn()){
-    $nguoichoi = new NguoiChoi();
     $id_user = $users->get_userid();
     $nguoichoi->id_user = $id_user;
     $diem_1 = $nguoichoi->sum_diem_canhan(1);
@@ -18,6 +18,21 @@ if($users->isLoggedIn()){
         }
     }
 }
+$list = $nguoichoi->get_distinct_user();
+$arr_user = array();
+if($list){
+    foreach($list as $key => $value){
+        $nguoichoi->id_user = $value;
+        $diem_1 = $nguoichoi->get_maxdiem(1);
+        $diem_2 = $nguoichoi->get_maxdiem(2);
+        $diem_3 = $nguoichoi->get_sumdiem(3);
+        $diem_4 = $nguoichoi->get_sumdiem(4);
+        $diem_5 = $nguoichoi->get_sumdiem(5);
+        $tongdiem = $diem_1 + $diem_2 + $diem_3 + $diem_4  + $diem_5;
+        array_push($arr_user, array('id_user' => $value, 'diem' => $tongdiem));
+    }
+}
+$arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
 ?>
 <link rel="stylesheet" href="css/ranking/footer.css" media="all" type="text/css" />
 <div class="grid-row site-content">
@@ -51,11 +66,15 @@ if($users->isLoggedIn()){
                             <div class="grid-content home-ranking-content" style="margin:auto;">
                                 <h3>BẢNG XẾP HẠNG HIỆP SĨ</h3>
                                 <ul>
-                                    <li style="font-size:30px;">Đang cập nhật</li>
                                 <?php
-                                /*    for($i=1; $i<=20; $i++){
-                                        echo '<li>'.$i.'. Họ tên hiệp sĩ <span>1.000 điểm</span></li>';
-                                    }*/
+                                if($arr_user){
+                                    foreach($arr_user as $k => $a){
+                                        if($k < 20 && $a['diem'] > 0){
+                                            $users->id = $a['id_user'];$u = $users->get_one();
+                                            echo '<li>'.($k+1).'. '.$u['username'].' <span>'.format_number($a['diem']).' điểm</span></li>';    
+                                        }
+                                    }
+                                }
                                 ?>
                                 </ul>
                                 <div style="clear:both"></div>
