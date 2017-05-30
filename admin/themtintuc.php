@@ -71,7 +71,6 @@ if(isset($_POST['submit'])){
 <link href="assets/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" />
-<link href="assets/plugins/summernote/summernote.css" rel="stylesheet" />
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST" class="form-horizontal" data-parsley-validate="true" name="bannerform" id="tintucform" enctype="multipart/form-data">
 <div class="row">
 	<div class="col-md-12">
@@ -115,7 +114,7 @@ if(isset($_POST['submit'])){
                 <div class="form-group">
                     <label class="col-md-3 control-label">Nội dung</label>
                     <div class="col-md-9">
-                        <textarea class="form-control summernote" name="noidung" id="noidung" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($noidung) ? $noidung : ''; ?></textarea>
+                        <textarea class="form-control" name="noidung" id="noidung" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($noidung) ? $noidung : ''; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -169,8 +168,7 @@ if(isset($_POST['submit'])){
 <script type="text/javascript" src="assets/js/trangchu.js"></script>
 <script src="assets/plugins/switchery/switchery.min.js"></script>
 <script src="assets/js/form-slider-switcher.demo.min.js"></script>
-<script src="assets/plugins/summernote/summernote.min.js"></script>
-<script src="assets/js/form-summernote.demo.min.js"></script>
+<script src="assets/plugins/ckeditor/ckeditor.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
@@ -186,6 +184,14 @@ if(isset($_POST['submit'])){
             time:""
         });
         <?php endif; ?>
-        App.init();FormSummernote.init();FormSliderSwitcher.init();
+        CKEDITOR.replace('noidung', {
+            filebrowserBrowseUrl: 'assets/plugins/kcfinder/browse.php?opener=ckeditor&type=files',
+            filebrowserImageBrowseUrl: 'assets/plugins/kcfinder/browse.php?opener=ckeditor&type=images',
+            filebrowserFlashBrowseUrl: 'assets/plugins/kcfinder/browse.php?opener=ckeditor&type=flash',
+            filebrowserUploadUrl: 'assets/plugins/kcfinder/upload.php?opener=ckeditor&type=files',
+            filebrowserImageUploadUrl: 'assets/plugins/kcfinder/upload.php?opener=ckeditor&type=images',
+            filebrowserFlashUploadUrl: 'assets/plugins/kcfinder/upload.php?opener=ckeditor&type=flash',
+        });
+        App.init();FormSliderSwitcher.init();
     });
 </script>

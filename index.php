@@ -138,12 +138,17 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                             </div>
                         </div>
                     </div>
+                    <div class="mobile-regis text-center">
+                    <a href="users.html" class="btn-shopping"><i class="glyphicon glyphicon-user"></i> Đăng ký</a>
+                    </div>
                     <div class="grid-row nexo-frontpage-ranking">
                         <div class="grid-column">
                             <div class="grid-content home-ranking-content">
                                 <h3>BẢNG VINH DANH HIỆP SĨ</h3>
+                                <div class="content">
                                 <ul>
                                 <?php
+                                for($i=1; $i<=100; $i++):
                                 if($arr_user){
                                     foreach($arr_user as $k => $a){
                                         if($k < 20 && $a['diem'] > 0){
@@ -152,9 +157,11 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                         }
                                     }
                                 }
+                                endfor;
                                 ?>
                                 </ul>
-                                <!--<a href="ranking.html"><h4>Xem chi tiết</h4></a>-->
+                                </div>
+                                <a href="ranking.html"><h4>Xem chi tiết</h4></a>
                                 <div style="clear:both"></div>
                             </div>
                         </div>

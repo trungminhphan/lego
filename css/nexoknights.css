@@ -484,6 +484,13 @@ lego-modal-header {
   top: 0;
   left: 15px;
 }
+.lego-global-header .lego-brand-mobile{
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0px;
+  display: none;
+}
 .lego-global-header .logo {
   background-image: url("../images/lego-logo-menu.png?l.r2=2.0.0.2034");
   /*background-image: url("../images/lego-logo-menu.svg?l.r2=2.0.0.2034"), none;*/
@@ -495,6 +502,18 @@ lego-modal-header {
   height: 38px;
   background-size: auto 38px;
   padding: 6px;
+}
+.lego-global-header .logo-mobile{
+  background-image: url("../images/lego-logo-menu.png?l.r2=2.0.0.2034");
+  background-repeat: no-repeat;
+  display: block;
+  position: relative;
+  background-position: 3px 3px;
+  width: 38px;
+  height: 38px;
+  background-size: auto 38px;
+  padding: 0px 10px 10px 10px;
+
 }
 /*.lego-global-header .logo:after {
   content: '';
@@ -579,7 +598,7 @@ lego-modal-header {
 @media (min-width: 1025px) {
   .lego-global-header .legoid {
     padding-left: 12px; text-align:  right !important;
-    width: 440px;
+    width: 500px;
   }
 }
 .lego-global-header .search-wrap {

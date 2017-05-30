@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     $id_dmthanhpho = isset($_POST['id_dmthanhpho']) ? $_POST['id_dmthanhpho'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
     if($_POST["captcha"]==$users->get_capcha()){
-        $hinhanh_file = $_FILES["hinhanh"]["name"];
+        /*$hinhanh_file = $_FILES["hinhanh"]["name"];
         $hinhanh_size = $_FILES["hinhanh"]["size"];
         $hinhanh_type = $_FILES["hinhanh"]["type"];
         $hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
             }
         } else {
             $hinhanh = $old_hinhanh;
-        }
+        }*/
         $users->username = $username;
         if($users->check_exist_username()){
             $msg = 'Tài khoản đã tồn tại';
@@ -44,8 +44,8 @@ if(isset($_POST['submit'])){
             $users->diachi = $diachi;
             $users->id_dmthanhpho = $id_dmthanhpho;
             $users->email = $email;
-            if($hinhanh_file) $hinhanh = $gridfs->insert_files();
-            $users->hinhanh = $hinhanh;
+            //if($hinhanh_file) $hinhanh = $gridfs->insert_files();
+           // $users->hinhanh = $hinhanh;
             if($users->insert()) $msg = 'Đăng ký thành công';
             else $msg = 'Không thể đăng ký';
         }
@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <input type="text" value="<?php echo isset($username) ? $username: ''; ?>" required name="username" id="username" class="form-control" placeholder="Tên tài khoản (*)" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
+                            <input type="number" value="<?php echo isset($username) ? $username: ''; ?>" required name="username" id="username" class="form-control" placeholder="Số điện thoại (*)" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
                         </div>
                         <div class="form-group col-md-6">
                             <input type="password" required name="password" id="password" class="form-control" value="<?php echo isset($password) ? $password: ''; ?>" placeholder="Mật khẩu (*)" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
@@ -91,31 +91,31 @@ if(isset($_POST['submit'])){
                     <div class="form-group">
                         <input type="text" required name="hoten" id="hoten" class="form-control" placeholder="Họ tên (*)" value="<?php echo isset($hoten) ? $hoten: ''; ?>" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
                     </div>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="form-group col-md-6">
-                            <input type="text" name="namsinh" id="namsinh" required class="form-control" placeholder="Năm sinh (*)" value="<?php echo isset($namsinh) ? $namsinh: ''; ?>" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
+                            <input type="text" name="namsinh" id="namsinh" required class="form-control" placeholder="Năm sinh (*)" value="<?php //echo isset($namsinh) ? $namsinh: ''; ?>" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" name="sodienthoai" id="sodienthoai" required class="form-control" value="<?php echo isset($sodienthoai) ? $sodienthoai: ''; ?>" placeholder="Số điện thoại bố/mẹ (*)" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
+                            <input type="text" name="sodienthoai" id="sodienthoai" required class="form-control" value="<?php //echo isset($sodienthoai) ? $sodienthoai: ''; ?>" placeholder="Số điện thoại bố/mẹ (*)" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <input type="text" name="diachi" id="diachi" class="form-control" placeholder="Địa chỉ" value="<?php echo isset($diachi) ? $diachi: ''; ?>" />
+                            <input type="text" name="diachi" id="diachi" class="form-control" placeholder="Địa chỉ" value="<?php //secho isset($diachi) ? $diachi: ''; ?>" />
                         </div>
                         <div class="form-group col-md-6">
                             <select name="id_dmthanhpho" id="id_dmthanhpho" class="form-control" required oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);">
                                 <option value="">Chọn thành phố (*)</option>
                                 <?php
-                                foreach($thanhpho_list as $tp){
-                                    echo '<option value="'.$tp['_id'].'"'.($tp['_id'] == $id_dmthanhpho ? ' selected' : '').'>'.$tp['ten'].'</option>';
-                                }
+                                //foreach($thanhpho_list as $tp){
+                                //    echo '<option value="'.$tp['_id'].'"'.($tp['_id'] == $id_dmthanhpho ? ' selected' : '').'>'.$tp['ten'].'</option>';
+                               // }
                                 ?>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" id="email" value="<?php echo isset($email) ? $email: ''; ?>" class="form-control" placeholder="Email" />
+                        <input type="email" name="email" id="email" value="<?php //echo isset($email) ? $email: ''; ?>" class="form-control" placeholder="Email" />
                     </div>
                     <div class="form-group">
                         <div style="position:relative;">
@@ -126,7 +126,7 @@ if(isset($_POST['submit'])){
                             &nbsp;
                             <span class='label label-info' id="upload-file-info"></span>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="row">
                         <div class="form-group col-md-6">
                             <input type="text" name="captcha" id="captcha" class="form-control" placeholder="Mã xác nhận (*)" required oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"/>

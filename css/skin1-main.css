@@ -11819,7 +11819,7 @@ a.list-item[href] {
     border-radius: 20px;
 }
 @media screen and (min-width: 1024.5px) {
-    #home-cart, #home-user, #home-login {
+    #home-cart, #home-user, #home-login, .mobile-regis {
         display: none;
     }
 }
@@ -11844,6 +11844,11 @@ a.list-item[href] {
         display: none;
     }
     #home-homepage, .hide_mobile, #hide_mobile { display: none !important; }
+    .lego-global-header .lego-brand-mobile, .mobile-regis { display: block; }
+
+    .lego-global-header .logo {
+        background-image: url("../images/lego-logo-menu-1.png?l.r2=2.0.0.2034");
+    }
 }
 .site-navigation-cloned i:not(.icon),
 .flexbox .site-navigation-cloned i:not(.icon) {

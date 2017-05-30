@@ -69,17 +69,19 @@ if(isset($_SESSION['cart_items']) && $_SESSION['cart_items']){
                         <i class="glyphicon glyphicon-log-in"></i>
                         <a href="logout.html">Đăng xuất</a>
                     <?php else: ?>
-                        <i class="glyphicon glyphicon-user"></i>
-                        <a href="users.html">Đăng ký</a>
+                        <a href="login.html"><i class="glyphicon glyphicon-log-in"></i> Đăng nhập</a>
                         &nbsp;&nbsp;&nbsp;
-                        <i class="glyphicon glyphicon-log-in"></i>
-                        <a href="login.html">Đăng nhập</a>
+                        <a href="users.html" class="btn-shopping"><i class="glyphicon glyphicon-user"></i> Đăng ký</a>
                     <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="lego-brand-mobile">
+            <a href="https://www.hiepsinexo.com" class="logo-mobile"></a>
+        </div>
     </div>
+    
 </div>
 
 <div class="grid-row site-branding">

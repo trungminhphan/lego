@@ -137,6 +137,11 @@ footer .container {
 .nexo-frontpage-ranking .home-ranking-content, .nexo-frontpage-ranking .ranking-canhan {
     background:url('../../images/back_ranking_1.png') no-repeat;
     height: 473px;max-width: 840px;
+    
+}
+.nexo-frontpage-ranking .home-ranking-content .content {
+    height: 360px;max-width: 790px;
+    overflow-y: scroll;
 }
 .nexo-frontpage-ranking .home-ranking-content a, .nexo-frontpage-ranking .ranking-cahan a{
     float: right; margin: 0px 40px 0px 0px; color: #ffff00;
@@ -217,7 +222,7 @@ footer .container {
     font-size: 28px; border-bottom: 1px dotted #ccc;
 }
 .nexo-frontpage-ranking .home-ranking-content ul li{
-    width: 300px; padding: 1px; font-family: "Robotesqa4F", "Roboto";
+    width: 280px; padding: 1px; font-family: "Robotesqa4F", "Roboto";
     font-size: 20px;
 }
 .nexo-frontpage-ranking .home-ranking-content ul li span,
@@ -269,7 +274,13 @@ footer .container {
         column-count: 1;
         column-gap: 20px;
         list-style-type: none;
+        margin: 0px;
+        padding:0px 0px 0px 20px;
     }
+     .nexo-frontpage-ranking .home-ranking-content ul li {
+        width: 230px;
+     }
+
 }
 
 input[type="number"]::-webkit-outer-spin-button,
