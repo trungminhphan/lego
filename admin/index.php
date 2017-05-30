@@ -102,18 +102,6 @@ $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
             </div>
         </div>
     </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="widget widget-stats bg-green">
-            <div class="stats-icon"><i class="fa fa-columns"></i></div>
-            <div class="stats-info">
-                <h4>QUẢN LÝ</h4>
-                <p>GIAO DIỆN</p>    
-            </div>
-            <div class="stats-link">
-                <a href="giaodien.html">Quản lý <i class="fa fa-arrow-circle-o-right"></i></a>
-            </div>
-        </div>
-    </div>
 </div>
 <div style="clear:both;"></div>
 <?php require_once('footer.php'); ?>

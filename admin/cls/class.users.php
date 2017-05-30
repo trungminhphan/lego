@@ -173,6 +173,17 @@ class Users{
 		$field = array('_id' => true);
 		return $this->_collection->find($query, $field);
 	}
+
+	public function generate_capcha(){
+		$random_alpha = md5(rand());
+		$captcha_code = substr($random_alpha, 0, 6);
+		$_SESSION["captcha_code"] = $captcha_code;
+		return '<img src="captcha_code.php?captcha_code='.$captcha_code.'" />';
+	}
+
+	public function get_capcha(){
+		return $_SESSION['captcha_code'];
+	}
 }
 
 ?>

@@ -12,41 +12,45 @@ if(isset($_POST['submit'])){
     $diachi = isset($_POST['diachi']) ? $_POST['diachi'] : '';
     $id_dmthanhpho = isset($_POST['id_dmthanhpho']) ? $_POST['id_dmthanhpho'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
-    $hinhanh_file = $_FILES["hinhanh"]["name"];
-    $hinhanh_size = $_FILES["hinhanh"]["size"];
-    $hinhanh_type = $_FILES["hinhanh"]["type"];
-    $hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
-    $old_hinhanh = isset($_POST['old_hinhanh']) ? $_POST['old_hinhanh'] : '';
-    $temp = explode(".", $hinhanh_file);
-    if($hinhanh_file){
-        $ext = end($temp);
-        if($hinhanh_size < $max_file_size && in_array($ext, $images_extension)){
-            $gridfs->filename = $hinhanh_file;
-            $gridfs->filetype = $hinhanh_type;
-            $gridfs->tmpfilepath = $hinhanh_tmp;
-            $gridfs->caption = $hinhanh_file;
+    if($_POST["captcha"]==$users->get_capcha()){
+        $hinhanh_file = $_FILES["hinhanh"]["name"];
+        $hinhanh_size = $_FILES["hinhanh"]["size"];
+        $hinhanh_type = $_FILES["hinhanh"]["type"];
+        $hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
+        $old_hinhanh = isset($_POST['old_hinhanh']) ? $_POST['old_hinhanh'] : '';
+        $temp = explode(".", $hinhanh_file);
+        if($hinhanh_file){
+            $ext = end($temp);
+            if($hinhanh_size < $max_file_size && in_array($ext, $images_extension)){
+                $gridfs->filename = $hinhanh_file;
+                $gridfs->filetype = $hinhanh_type;
+                $gridfs->tmpfilepath = $hinhanh_tmp;
+                $gridfs->caption = $hinhanh_file;
+            } else {
+                $msg = 'Dung lượng hình ảnh quá lớn hoặc không đúng định dạng';
+            }
         } else {
-            $msg = 'Dung lượng hình ảnh quá lớn hoặc không đúng định dạng';
+            $hinhanh = $old_hinhanh;
+        }
+        $users->username = $username;
+        if($users->check_exist_username()){
+            $msg = 'Tài khoản đã tồn tại';
+        } else {
+            $users->password = $password;
+            $users->roles = 4;
+            $users->hoten = $hoten;
+            $users->namsinh = $namsinh;
+            $users->sodienthoai = $sodienthoai;
+            $users->diachi = $diachi;
+            $users->id_dmthanhpho = $id_dmthanhpho;
+            $users->email = $email;
+            if($hinhanh_file) $hinhanh = $gridfs->insert_files();
+            $users->hinhanh = $hinhanh;
+            if($users->insert()) $msg = 'Đăng ký thành công';
+            else $msg = 'Không thể đăng ký';
         }
     } else {
-        $hinhanh = $old_hinhanh;
-    }
-    $users->username = $username;
-    if($users->check_exist_username()){
-        $msg = 'Tài khoản đã tồn tại';
-    } else {
-        $users->password = $password;
-        $users->roles = 4;
-        $users->hoten = $hoten;
-        $users->namsinh = $namsinh;
-        $users->sodienthoai = $sodienthoai;
-        $users->diachi = $diachi;
-        $users->id_dmthanhpho = $id_dmthanhpho;
-        $users->email = $email;
-        if($hinhanh_file) $hinhanh = $gridfs->insert_files();
-        $users->hinhanh = $hinhanh;
-        if($users->insert()) $msg = 'Đăng ký thành công';
-        else $msg = 'Không thể đăng ký';
+        $msg = 'Mã xác nhận chưa đúng, vui lòng nhập lại';
     }
 }
 ?>
@@ -122,7 +126,19 @@ if(isset($_POST['submit'])){
                             &nbsp;
                             <span class='label label-info' id="upload-file-info"></span>
                         </div>
-                        <button class="btn-shopping pull-right" name="submit" type="submit"><i class="glyphicon glyphicon-user"></i> Đăng ký</button>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type="text" name="captcha" id="captcha" class="form-control" placeholder="Mã xác nhận (*)" required oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"/>
+                        </div>
+                        <div class="form-group col-md-6" id="captcha_code">
+                            <?php echo $users->generate_capcha(); ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn-shopping pull-right" name="submit" type="submit"><i class="glyphicon glyphicon-user"></i> Đăng ký</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -143,6 +159,12 @@ if(isset($_POST['submit'])){
             var newtext;
             newtext = text.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a").replace(/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g, "A").replace(/\ /g, '-').replace(/đ/g, "d").replace(/Đ/g, "D").replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y").replace(/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g,"Y").replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u").replace(/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g,"U").replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ.+/g,"o").replace(/Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ.+/g,"O").replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ.+/g, "e").replace(/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ.+/g, "E").replace(/ì|í|ị|ỉ|ĩ/g,"i").replace(/Ì|Í|Ị|Ỉ|Ĩ/g,"I");
             $("#username").val(newtext);
+        });
+        $("#captcha_code").click(function(){
+            _this = $(this);
+            $.get('get_captcha.php', function(data){
+                $(_this).html(data);
+            });
         });
     });
 </script>
