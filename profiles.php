@@ -36,11 +36,11 @@ if($arr_user){
 }
 
 $users->id = $id_user; $u = $users->get_one();
-if(isset($u['id_dmthanhpho']) && $u['id_dmthanhpho']){
+/*if(isset($u['id_dmthanhpho']) && $u['id_dmthanhpho']){
     $danhmucthanhpho = new DanhMucThanhPho();
     $danhmucthanhpho->id = $u['id_dmthanhpho']; $tp = $danhmucthanhpho->get_one();
     $tenthanhpho = $tp['ten'];
-} else { $tenthanhpho = '';}
+} else { $tenthanhpho = '';}*/
 ?>
 <link rel="stylesheet" href="css/ranking/footer.css" media="all" type="text/css" />
 <div class="grid-row site-content">
@@ -75,7 +75,7 @@ if(isset($u['id_dmthanhpho']) && $u['id_dmthanhpho']){
                                 <li>Năm sinh: <?php echo $u['namsinh']; ?></li>
                                 <li>Điện thoại: <?php echo $u['sodienthoai']; ?></li>
                                 <li>Địa chỉ: <?php echo $u['diachi']; ?></li>  
-                                <li>Thành phố: <?php echo $tenthanhpho; ?></li>
+                                <!--<li>Thành phố: <?php //echo $tenthanhpho; ?></li>-->
                                 <li>Email: <?php echo $u['email']; ?></li>
                             </ul>
                             <a href="users_edit.html"><h4>Chỉnh sửa</h4></a>

@@ -197,7 +197,7 @@ if(isset($_POST['submit'])){
             filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
             filebrowserWindowWidth: '1000',
             filebrowserWindowHeight: '700'
-        } );
+        });
         App.init();FormSliderSwitcher.init();
     });
 </script>
