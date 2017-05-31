@@ -9,6 +9,7 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'] ? $_POST['password'] : '';
     $url = $_POST['url'] ? $_POST['url'] : '';
     if ($users->authenticate($username, $password)) {
+        $users->push_logs_in();
         if($url) transfers_to($url);
         else transfers_to('profiles.html');
     } else {

@@ -58,7 +58,7 @@ class Users{
 			'password'=>md5($this->password),
 			'roles'=>$this->roles,
 			'hoten'=>$this->hoten,
-			'namsinh' => intval($this->namsinh),
+			'namsinh' => $this->namsinh ? intval($this->namsinh) : '',
 			'sodienthoai' => $this->sodienthoai,
 			'id_dmthanhpho' => $this->id_dmthanhpho ? new MongoId($this->id_dmthanhpho) : '',
 			'diachi' => $this->diachi,

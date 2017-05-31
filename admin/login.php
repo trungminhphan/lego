@@ -16,7 +16,8 @@ if(isset($_POST['submit'])){
     $url = $_POST['url'] ? $_POST['url'] : '';
     if ($users->authenticate($username, $password)) {
         $users->push_logs_in();
-         transfers_to('index.html');
+        if($url) transfers_to($url);
+        else transfers_to('index.html');
     } else {
         $alert = true;
     }

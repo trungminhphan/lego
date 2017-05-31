@@ -171,6 +171,8 @@ if($users->isLoggedIn() && !$users->is_admin() && !$users->is_manager()){
                     </a>
                     <ul class="sub-menu">
                     	<li class="divider"></li>
+                        <li><a href="dangky.html">Đăng ký nhanh Tài khoản</a></li>
+                    	<li class="divider"></li>
                         <li><a href="donhang.html">Đơn hàng</a></li>
                     	<li class="divider"></li>
                         <li><a href="hiepsi.html">Danh sách hiệp sĩ tổng thể</a></li>
