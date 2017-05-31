@@ -278,9 +278,13 @@ footer .container {
         padding:0px 0px 0px 20px;
     }
      .nexo-frontpage-ranking .home-ranking-content ul li {
-        width: 230px;
+        width: 300px;
      }
-
+}
+@media screen and (max-width: 414px) {
+    .nexo-frontpage-ranking .home-ranking-content ul li{
+        width: 280px;
+    }
 }
 
 input[type="number"]::-webkit-outer-spin-button,

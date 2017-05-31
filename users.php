@@ -76,11 +76,6 @@ if(isset($_POST['submit'])){
                 <?php endif; ?>
                 <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" id="register">
                     <div class="row">
-                        <div class="form-group col-md-12" style="font-size: 18px;color:#fff;">
-                            (*) Bắt buộc nhập dữ liệu
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="form-group col-md-6">
                             <input type="number" value="<?php echo isset($username) ? $username: ''; ?>" required name="username" id="username" class="form-control" placeholder="Số điện thoại (*)" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
                         </div>

@@ -27,6 +27,10 @@ class HiepSiTuan {
 		return $this->_collection->findOne($query);
 	}
 
+	public function get_newest(){
+		return $this->_collection->find()->sort(array('date_post' =>-1))->limit(1);
+	}
+
 	public function get_list_condition($condition){
 		return $this->_collection->find($condition)->sort(array('date_post'=> -1));
 	}

@@ -25,6 +25,7 @@ $sanpham_list = $sanpham->get_all_list();
 									</section>
 									<section class="secondary-content">
 										<h5><span itemprop="name"><?php echo $sp['ten']; ?></span></h5>
+										<h5>Giá: <?php echo format_number($sp['gia']); ?> VNĐ</h5>
 									</section></a>
 								</li>
 							<?php endforeach; ?>

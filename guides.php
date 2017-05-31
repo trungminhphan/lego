@@ -24,11 +24,11 @@ $list = $huongdan->get_all_list();
                 <li class="col-xs-12 blog-list-wrap">
                     <!-- Blog Wrapper -->
                     <div class="row blog-wrap">
-                        <div class="col-sm-5">
+                        <div class="col-sm-4">
                             <div class="blog-img-wrap">
                             <?php
                                 if(isset($l['hinhanh'][0]['aliasname'])){
-                                    echo '<img width="600" height="220" src="'.$target_images.$l['hinhanh'][0]['aliasname'].'" class="img-responsive" alt="'.$l['tieude'].'">';
+                                    echo '<img width="300" height="220" src="'.$target_images.$l['hinhanh'][0]['aliasname'].'" class="img-responsive" alt="'.$l['tieude'].'">';
                                 } else {
                                     echo '<img width="600" height="220" src="images/70348_17_LancesTwinJouster_L_8col.jpg" class="img-responsive" alt="'.$l['tieude'].'">';
                                 }
@@ -36,7 +36,7 @@ $list = $huongdan->get_all_list();
                             </div><!-- Blog Image  Wrapper -->
                         </div><!-- Blog Wrapper -->
                         <!-- Blog Detail Wrapper -->
-                        <div class="col-sm-7">
+                        <div class="col-sm-8">
                             <div class="blog-details">
                                 <h4><a href="guides_detail.html?id=<?php echo $l['_id']; ?>"><?php echo $l['tieude']; ?></a></h4>
                                 <ul class="blog-meta" style="padding:0px;">

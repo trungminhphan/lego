@@ -14888,6 +14888,15 @@ a.gallery-upload-item::after {
     .album-editor .images li:first-child {
         width: 100%
     }
+    #home-cart, #home-user, #home-login, .mobile-regis, #home-homepage {
+        display: none;
+    }
+    #home-homepage, #hide_mobile { display: none !important; }
+    .lego-global-header .lego-brand-mobile, .mobile-regis { display: block; }
+
+    .lego-global-header .logo {
+        background-image: url("../images/lego-logo-menu-1.png?l.r2=2.0.0.2034");
+    }
 }
 @media screen and (min-width: 768px) {
     .album-editor .images li {

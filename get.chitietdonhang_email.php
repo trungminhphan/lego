@@ -967,14 +967,14 @@ $donhang->id = $id; $dh = $donhang->get_one();
                                         <table class="six columns">
                                             <tr>
                                                 <td>
-                                                    <h4>Mã đơn hàng: <?php echo $dh['madonhang']; ?></h4>
+                                                    <h4 style="color:#fff;">Mã đơn hàng: <?php echo $dh['madonhang']; ?></h4>
                                                     <ul>
-                                                        <li>Họ tên khách hàng: <?php echo $dh['thongtingiaohang']['hoten']; ?></li>
-                                                        <li>Địa chỉ: <?php echo $dh['thongtingiaohang']['diachi']; ?></li>
-                                                        <li>Điện thoại: <?php echo $dh['thongtingiaohang']['sodienthoai']; ?></li>
-                                                        <li>Email: <?php echo $dh['thongtingiaohang']['email']; ?></li>
-                                                        <li>Ngày đặt hàng: <?php echo date("d/m/Y H:i", $dh['ngaydathang']->sec); ?></li>
-                                                        <li>Ghi chú: <?php echo $dh['thongtingiaohang']['ghichu']; ?></li>
+                                                        <li style="color:#fff;">Họ tên khách hàng: <?php echo $dh['thongtingiaohang']['hoten']; ?></li>
+                                                        <li style="color:#fff;">Địa chỉ: <?php echo $dh['thongtingiaohang']['diachi']; ?></li>
+                                                        <li style="color:#fff;">Điện thoại: <?php echo $dh['thongtingiaohang']['sodienthoai']; ?></li>
+                                                        <li style="color:#fff;">Email: <?php echo $dh['thongtingiaohang']['email']; ?></li>
+                                                        <li style="color:#fff;">Ngày đặt hàng: <?php echo date("d/m/Y H:i", $dh['ngaydathang']->sec); ?></li>
+                                                        <li style="color:#fff;">Ghi chú: <?php echo $dh['thongtingiaohang']['ghichu']; ?></li>
                                                     </ul>
                                                 </td>
                                                 <td class="expander"></td>
@@ -990,7 +990,7 @@ $donhang->id = $id; $dh = $donhang->get_one();
                                         <table class="twelve columns">
                                             <tr>
                                                 <td class="last">
-                                                    <h4>Sản phẩm</h4>
+                                                    <h4 style="color:#fff;">Sản phẩm</h4>
                                                 </td>
                                             </tr>
                                         </table>
@@ -998,7 +998,7 @@ $donhang->id = $id; $dh = $donhang->get_one();
                                 </tr>
                             </table>
                             <?php if($dh['sanpham']): ?>
-                            <table class="container" style="width:800px;font-size:15px;" cellpadding="10">
+                            <table class="container" style="width:800px;font-size:15px;color:#fff;" cellpadding="10">
                                 <thead>
                                   <tr>
                                     <th>Tên sản phẩm</th>
@@ -1024,7 +1024,7 @@ $donhang->id = $id; $dh = $donhang->get_one();
                                 </tbody>
                                 <tfoot>
                                   <tr>
-                                    <th colspan="4">
+                                    <th colspan="4" style="color:#fff;">
                                     <h4>TỔNG CỘNG: 
                                     <?php echo format_number($tongthanhtien); ?> VNĐ</h4></th>
                                   </tr>

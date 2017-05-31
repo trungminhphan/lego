@@ -139,6 +139,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                         </div>
                     </div>
                     <div class="mobile-regis text-center">
+                    <a href="marking.html" class="btn-shopping"><i class="glyphicon glyphicon-heart"></i> Nhập điểm</a>
                     <a href="users.html" class="btn-shopping"><i class="glyphicon glyphicon-user"></i> Đăng ký</a>
                     </div>
                     <div class="grid-row nexo-frontpage-ranking">

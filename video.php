@@ -28,7 +28,7 @@ $video->id = $id; $v = $video->get_one();
 <?php if($v && isset($v['link']) && $v['link']): ?>
     <iframe width="560" height="315" src="<?php echo $v['link']; ?>" frameborder="0" allowfullscreen></iframe>
 <?php else: ?>
-    <video poster="<?php echo isset($v['hinhanh'][0]['aliasname']) ? $target_images . $v['hinhanh'][0]['aliasname'] : 'images/default_video.png';?>" controls crossorigin id="videoplayer">
+    <video poster="<?php echo isset($v['hinhanh'][0]['aliasname']) ? $target_images . $v['hinhanh'][0]['aliasname'] : 'images/default_video.png';?>" controls crossorigin controlsList="nodownload" id="videoplayer">
         <source src="<?php echo $target_videos . $v['dinhkem'][0]['aliasname']; ?>" type="video/mp4">
         <source src="<?php echo $target_videos . $v['dinhkem'][0]['aliasname']; ?>" type="video/webm">
     </video>

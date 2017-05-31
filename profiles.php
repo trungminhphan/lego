@@ -68,15 +68,15 @@ $users->id = $id_user; $u = $users->get_one();
                     <div class="grid-row nexo-frontpage-ranking">
                         <div class="grid-column">
                           <div class="grid-content ranking-canhan" style="margin:auto;">
-                            <h3>THÔNG TIN TÀI KHOẢN</h3>
+                            <h3 style="padding-top:30px;">THÔNG TIN TÀI KHOẢN</h3>
                             <ul>
                                 <li>Tên tài khoản: <?php echo $u['username']; ?></li>
                                 <li>Họ tên: <?php echo $u['hoten']; ?></li>
-                                <li>Năm sinh: <?php echo $u['namsinh']; ?></li>
-                                <li>Điện thoại: <?php echo $u['sodienthoai']; ?></li>
-                                <li>Địa chỉ: <?php echo $u['diachi']; ?></li>  
-                                <!--<li>Thành phố: <?php //echo $tenthanhpho; ?></li>-->
-                                <li>Email: <?php echo $u['email']; ?></li>
+                                <!--<li>Năm sinh: <?php //echo $u['namsinh']; ?></li>
+                                <li>Điện thoại: <?php //echo $u['sodienthoai']; ?></li>
+                                <li>Địa chỉ: <?php //echo $u['diachi']; ?></li>  
+                                <li>Thành phố: <?php //echo $tenthanhpho; ?></li>
+                                <li>Email: <?php //echo $u['email']; ?></li>-->
                             </ul>
                             <a href="users_edit.html"><h4>Chỉnh sửa</h4></a>
                             <div style="clear:both"></div>

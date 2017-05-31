@@ -1,7 +1,7 @@
 <?php
 //echo get_remote_data('http://example.com/?var2=something&var3=blabla');     // GET request 
 //echo get_remote_data('http://example.com/', 'var2=something&var3=blabla' ); // POST request
-echo get_remote_data('http://local.com/lego/get.chitietdonhang_email.php?id=591eed707247ae140f00003e'); // POST request
+echo get_remote_data('http://local.com/lego/get.chitietdonhang_email.php?id=592eb7097247aec817000029'); // POST request
 //See Updates and explanation at: https://github.com/tazotodua/useful-php-scripts/
 
 function get_remote_data($url, $post_paramtrs = false) {
