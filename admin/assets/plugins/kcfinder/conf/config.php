@@ -22,8 +22,8 @@ $_CONFIG = array(
 // GENERAL SETTINGS
 
     'disabled' => false,
-    'uploadURL' => "../../../../uploads/blogs/",
-    'uploadDir' => "",
+    'uploadURL' => "/var/www/html/hiepsinexo.com/uploads/blogs/",
+    'uploadDir' => "/var/www/html/hiepsinexo.com/uploads/blogs/",
     'theme' => "default",
 
     'types' => array(

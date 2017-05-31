@@ -184,14 +184,20 @@ if(isset($_POST['submit'])){
             time:""
         });
         <?php endif; ?>
-        CKEDITOR.replace('noidung', {
+        /*CKEDITOR.replace('noidung', {
             filebrowserBrowseUrl: 'assets/plugins/kcfinder/browse.php?opener=ckeditor&type=files',
             filebrowserImageBrowseUrl: 'assets/plugins/kcfinder/browse.php?opener=ckeditor&type=images',
             filebrowserFlashBrowseUrl: 'assets/plugins/kcfinder/browse.php?opener=ckeditor&type=flash',
             filebrowserUploadUrl: 'assets/plugins/kcfinder/upload.php?opener=ckeditor&type=files',
             filebrowserImageUploadUrl: 'assets/plugins/kcfinder/upload.php?opener=ckeditor&type=images',
             filebrowserFlashUploadUrl: 'assets/plugins/kcfinder/upload.php?opener=ckeditor&type=flash',
-        });
+        });*/
+        CKEDITOR.replace( 'noidung', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        } );
         App.init();FormSliderSwitcher.init();
     });
 </script>

@@ -1,17 +1,18 @@
 <?php
 require_once('header.php');
-if(!$users->isLoggedIn()){
+/*if(!$users->isLoggedIn()){
     transfers_to('login.html?url=' . $_SERVER['REQUEST_URI']);
-}
+}*/
 $nguoichoi = new NguoiChoi();
-$id_user = $users->get_userid();
-$nguoichoi->id_user = $id_user;
-$diem_1 = $nguoichoi->sum_diem_canhan(1);
-$diem_2 = $nguoichoi->sum_diem_canhan(2);
-$diem_3 = $nguoichoi->sum_diem_canhan(3);
-$diem_4 = $nguoichoi->sum_diem_canhan(4);
-$diem_5 = $nguoichoi->sum_diem_canhan(5);
-$tongdiem = $diem_1 + $diem_2 + $diem_3 + $diem_4 + $diem_5;
+//$id_user = $users->get_userid();
+$id_user = isset($_GET['id_user']) ? $_GET['id_user'] : $users->get_userid();
+$nguoichoi->id_user = $id_user;$nguoichoi_list = $nguoichoi->get_list_by_user();
+$diem_1_cn = $nguoichoi->sum_diem_canhan(1);
+$diem_2_cn = $nguoichoi->sum_diem_canhan(2);
+$diem_3_cn = $nguoichoi->sum_diem_canhan(3);
+$diem_4_cn = $nguoichoi->sum_diem_canhan(4);
+$diem_5_cn = $nguoichoi->sum_diem_canhan(5);
+$tongdiem_cn = $diem_1_cn + $diem_2_cn + $diem_3_cn + $diem_4_cn + $diem_5_cn;
 $list = $nguoichoi->get_distinct_user();
 $arr_user = array();
 if($list){
@@ -27,13 +28,13 @@ if($list){
     }
 }
 $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
-$xephang = 0;
+$xephang_cn = 0;
 if($arr_user){
     foreach ($arr_user as $key => $value) {
-        if($id_user == $value['id_user']) $xephang = $key+1;
+        if($id_user == $value['id_user']) $xephang_cn = $key+1;
     }
 }
-$nguoichoi_list = $nguoichoi->get_list_by_user();
+
 $users->id = $id_user; $u = $users->get_one();
 if(isset($u['id_dmthanhpho']) && $u['id_dmthanhpho']){
     $danhmucthanhpho = new DanhMucThanhPho();
@@ -53,13 +54,13 @@ if(isset($u['id_dmthanhpho']) && $u['id_dmthanhpho']){
                           <div class="grid-content ranking-canhan" style="margin:auto;">
                             <h3>Điểm sức mạnh cá nhân</h3>
                             <ul>
-                                <li>Level game Merlok 2.0 <span><?php echo format_number($diem_1);?> điểm</span></li>
-                                <li>Số khiên sức mạnh<span><?php echo format_number($diem_2);?> điểm</span></li>
-                                <li>Điểm mua hàng<span><?php echo format_number($diem_3);?> điểm</span></li>
-                                <li>Điểm tham gia “Đấu trường Hiệp sĩ”<span><?php echo format_number($diem_4);?> điểm</span></li>  
-                                <li>Điểm tham gia “Đại hội Hiệp sĩ”<span><?php echo format_number($diem_5);?> điểm</span></li>
-                                <li>Tổng điểm<span><?php echo format_number($tongdiem);?> điểm</span></li>
-                                <li>Thứ hạng<span><?php echo $xephang; ?></span></li>
+                                <li>Level game Merlok 2.0 <span><?php echo format_number($diem_1_cn);?> điểm</span></li>
+                                <li>Số khiên sức mạnh<span><?php echo format_number($diem_2_cn);?> điểm</span></li>
+                                <li>Điểm mua hàng<span><?php echo format_number($diem_3_cn);?> điểm</span></li>
+                                <li>Điểm tham gia “Đấu trường Hiệp sĩ”<span><?php echo format_number($diem_4_cn);?> điểm</span></li>  
+                                <li>Điểm tham gia “Đại hội Hiệp sĩ”<span><?php echo format_number($diem_5_cn);?> điểm</span></li>
+                                <li>Tổng điểm<span><?php echo format_number($tongdiem_cn);?> điểm</span></li>
+                                <li>Thứ hạng<span><?php echo $xephang_cn; ?></span></li>
                             </ul>
                         </div>
                         </div>

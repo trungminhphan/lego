@@ -152,7 +152,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                     foreach($arr_user as $k => $a){
                                         if($k < 20 && $a['diem'] > 0){
                                             $users->id = $a['id_user'];$u = $users->get_one();
-                                            echo '<li>'.($k+1).'. '.$u['username'].' <span>'.format_number($a['diem']).' điểm</span></li>';    
+                                            echo '<li>'.($k+1).'. <a href="profiles.html?id_user='.$a['id_user'].'" style="float:none;">'.$u['username'].'</a> <span>'.format_number($a['diem']).' điểm</span></li>';    
                                         }
                                     }
                                 }
