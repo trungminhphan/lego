@@ -99,7 +99,7 @@ class NguoiChoi{
 			$query = array(
 				'id_user' => new MongoId($this->id_user),
 				'loaidiem' => intval($this->loaidiem),
-				'tinhtrang.t' => 1
+				'tinhtrang.t' => intval($act)
 			);
 		}
 		return $this->_collection->find($query)->sort(array('date_post' => -1));
@@ -133,7 +133,7 @@ class NguoiChoi{
 		} else {
 			$query = array(
 				'id_user' => new MongoId($this->id_user),
-				'tinhtrang.t' => 1
+				'tinhtrang.t' => intval($act)
 			);
 		}
 

@@ -14,6 +14,7 @@ $list = $nguoichoi->get_distinct_user();
     <a href="<?php echo $_SERVER['REQUEST_URI']; ?>" class="btn btn-success"><i class="fa fa-refresh"></i> Tải lại</a>
     <a href="nguoichoi.html?act=0" class="btn btn-danger"><i class="fa fa-exclamation-circle"></i> Chưa duyệt</a>
     <a href="nguoichoi.html?act=1" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Đã duyệt</a>
+    <a href="nguoichoi.html?act=2" class="btn btn-info"><i class="fa fa-ban"></i> Không duyệt</a>
     <a href="get.nguoichoi.html?act=del_all" class="btn btn-default" onclick="return confirm('Chắc chắn xóa? Xóa sẽ mất hết dữ liệu!');"><i class="fa fa-trash"></i> Xoá tất cả điểm chưa duyệt</a>
     <hr />
     <div class="panel-group" id="accordion">
@@ -109,7 +110,8 @@ $list = $nguoichoi->get_distinct_user();
                                         <p class="image-caption">
                                             <i class="fa fa-heart"></i> <?php echo $diem['diem']; ?> &nbsp;&nbsp;&nbsp;
                                             <a href="get.nguoichoi.html?id=<?php echo $diem['_id']; ?>&id_user=<?php echo $v; ?>&act=del#modal-xoanguoichoi" data-toggle="modal" class="xoanguoichoi" name="#diem_<?php echo $v;?>" onclick="return false;"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;&nbsp;
-                                            <a href="get.nguoichoi.html?id=<?php echo $diem['_id']; ?>&id_user=<?php echo $v; ?>&act=xetduyet" class="duyetnguoichoi" name="#diem_<?php echo $v;?>" onclick="return false;"><i class="fa fa-check-square-o"></i></a>
+                                            <a href="get.nguoichoi.html?id=<?php echo $diem['_id']; ?>&id_user=<?php echo $v; ?>&act=xetduyet" class="duyetnguoichoi" name="#diem_<?php echo $v;?>" onclick="return false;"><i class="fa fa-check-square-o"></i></a>&nbsp;&nbsp;&nbsp;
+                                            <a href="get.nguoichoi.html?id=<?php echo $diem['_id']; ?>&id_user=<?php echo $v; ?>&act=khongxetduyet&collapse=<?php echo 'collapse_' . $k; ?>&k=<?php echo $act; ?>#modal-khongduyet" data-toggle="modal" class="khongduyetnguoichoi" name="#diem_<?php echo $v;?>" onclick="return false;"><i class="fa fa-ban"></i></a>
                                         </p>
                                     </div>
                                     <div class="image-info">
@@ -128,6 +130,7 @@ $list = $nguoichoi->get_distinct_user();
         <?php endif; endforeach; ?>
     </div>
 </div>
+
 <div class="modal fade" id="modal-xoanguoichoi">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -147,6 +150,35 @@ $list = $nguoichoi->get_distinct_user();
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modal-khongduyet">
+<form action="post.nguoichoi.html" method="POST" class="form-horizontal" data-parsley-validate="true" name="duyetnguoichoiform">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Nội dung không duyệt</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                <label class="col-md-3 control-label">Nội dung không duyệt</label>
+                <div class="col-md-9">
+                    <input type="hidden" name="id" id="id" />
+                    <input type="hidden" name="k" id="k" />
+                    <input type="hidden" name="id_user" id="id_user" />
+                    <input type="hidden" name="act" id="act" value="khongxetduyet"/>
+                    <input type="hidden" name="collapse" id="collapse_duyet" value="">
+                    <input type="text" name="noidung" id="noidung" value="" class="form-control" data-parsley-required="true"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-white" data-dismiss="modal"><i class="fa fa-close"></i> Đóng</a>
+                <button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-trash"></i> Đồng ý</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
 <div style="clear:both;"></div>
 <?php require_once('footer.php'); ?>
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
@@ -157,6 +189,16 @@ $list = $nguoichoi->get_distinct_user();
 ============== END PAGE LEVEL JS ================== -->
 <script>
     $(document).ready(function(){
+        $(".khongduyetnguoichoi").click(function(){
+            var _this = $(this); var _link = $(this).attr("href");
+            $.getJSON(_link, function(data){
+                $("#id").val(data.id);
+                $("#collapse_duyet").val(data.collapse);
+                $("#id_user").val(data.id_user);
+                $("#k").val(data.k);
+                $("#noidung").val(data.noidung);
+            });
+        });
         $(".duyetnguoichoi").click(function(){
             var _this = $(this); var _link = $(this).attr("href");
             var form = $(this).attr("name");
@@ -165,7 +207,6 @@ $list = $nguoichoi->get_distinct_user();
                 _this.parents("div.image").fadeOut();
             });
         });
-
         $(".xoanguoichoi").click(function(){
             var _this = $(this); var _link = $(this).attr("href");
             var form = $(this).attr("name");

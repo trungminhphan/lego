@@ -5,6 +5,20 @@ $act = isset($_GET['act']) ? $_GET['act'] : '';
 $id_user = isset($_GET['id_user']) ? $_GET['id_user'] : '';
 $id_user_check = $users->get_userid();
 $nguoichoi = new NguoiChoi();$gridfs = new GridFS();
+if($act == 'khongxetduyet'){
+	$nguoichoi->id = $id; $nc = $nguoichoi->get_one();
+	$collapse = isset($_GET['collapse']) ? $_GET['collapse'] : '';
+	$k = isset($_GET['k']) ? $_GET['k'] : '';
+	$arr = array(
+		'id' => $id,
+		'act' => $act,
+		'id_user' => $id_user,
+		'collapse' => $collapse,
+		'k' => $k,
+		'noidung' => isset($nc['tinhtrang']['noidung']) ? $nc['tinhtrang']['noidung'] : ''
+	);
+	echo json_encode($arr);
+}
 
 if($act == 'xetduyet'){
 	$nguoichoi->id = $id;

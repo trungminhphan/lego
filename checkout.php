@@ -4,15 +4,15 @@ $id_user = ''; $sanpham = new SanPham();$donhang = new DonHang();
 require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'pro11.emailserver.vn';  // Specify main and backup SMTP servers
+$mail->Host = 'mail.viettinhanh.com.vn';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'info@southernrct.com';                 // SMTP username
-$mail->Password = 'info789%';                           // SMTP password
-$mail->SMTPSecure = 'ssl';                          // SMTP password
-$mail->Port = 465;                                    // TCP port to connect to
+$mail->Username = 'info@southernrct.com';             // SMTP username
+$mail->Password = 'D5syhXtQ%';                        // SMTP password
+$mail->SMTPSecure = 'tsl';                          // SMTP password
+$mail->Port = 25;                                   // TCP port to connect to
 $mail->CharSet = 'UTF-8';
-$mail->setFrom('info@southernrct.com', 'HIEPSINEXO.COM');
-$mail->addAddress('pmtrung@agu.edu.vn', 'THÔNG TIN ĐƠN HÀNG');
+$mail->setFrom('hiepsinexo@viettinhanh.com.vn', 'HIEPSINEXO.COM');
+$mail->addAddress('hiepsinexo@viettinhanh.com.vn', 'THÔNG TIN ĐƠN HÀNG');
 $mail->isHTML(true);
 $mail->Subject = 'HIEPSINEXO.COM - THÔNG TIN ĐƠN HÀNG';
 if(!isset($_SESSION['cart_items'])){ $msg = 'Hãy chọn sản phẩm đưa vào giỏ hàng'; }

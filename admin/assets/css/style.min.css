@@ -13,5 +13,5 @@
 .bold {
 	font-weight: bold;
 }
-.duyetnguoichoi, .xoanguoichoi { color:  #ffffff; }
-.duyetnguoichoi:hover, .xoanguoichoi:hover { color: #ffff00; }
+.khongduyetnguoichoi,.duyetnguoichoi, .xoanguoichoi { color:  #ffffff; }
+.khongduyetnguoichoi:hover,.duyetnguoichoi:hover, .xoanguoichoi:hover { color: #ffff00; }
