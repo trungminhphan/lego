@@ -26,7 +26,8 @@ $list = $huongdan->get_all_list();
 							<li><i class="fa fa-calendar-o"></i> Ngày đăng: <?php echo date("d/m/Y", $tt['date_post']->sec); ?></li>								
 						</ul><!-- Blog Meta -->
 						<?php echo $tt['mota']; ?>
-						<?php echo preg_replace('/(<[^>]*) style=("[^"]+"|\'[^\']+\')([^>]*>)/i', '$1$3', $tt['noidung']); ?>
+						<?php //echo preg_replace('/(<[^>]*) style=("[^"]+"|\'[^\']+\')([^>]*>)/i', '$1$3', $tt['noidung']); ?>
+						<?php echo $tt['noidung']; ?>
 						
 					
 					</div><!-- Blog Detail Wrapper -->

@@ -54,7 +54,7 @@ $nguoichoi_list = $nguoichoi->get_all_list();$fs = new GridFS();
                             echo '<tr>';
                             echo '<td>'.$i.'</td>';
                             echo '<td>'.$us['username'].'</td>';
-                            echo '<td class="text-center">'. ($nc['hinhanh'] ? '<a href="'.$target_images_home.'medium-size/'.$nc['hinhanh'].'_'.$object->file['filename'].'" data-lightbox="gallery-group-1"><img src="'.$target_images_home.'thumb-size/'.$nc['hinhanh'].'_'.$object->file['filename'].'" height="30" /></a>' : '').'</td>';
+                            echo '<td class="text-center">'. ($nc['hinhanh'] ? '<a href="image.html?id='.$nc['hinhanh'].'" data-lightbox="gallery-group-1"><img src="'.$target_images_home.'thumb-size/'.$nc['hinhanh'].'_'.$object->file['filename'].'" height="30" /></a>' : '').'</td>';
                             echo '<td class="text-center">'.$nc['capdo'].'</td>';
                             echo '<td class="text-center">'.(isset($nc['diem']) ? $nc['diem'] : '').'</td>';
                             echo '<td class="text-center">'.date("d/m/Y H:i", $nc['date_post']->sec).'</td>';

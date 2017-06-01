@@ -161,7 +161,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                     <div class="grid-row nexo-frontpage-ranking">
                         <div class="grid-column">
                             <div class="grid-content home-ranking-content">
-                                <h3>BẢNG XẾP HẠNG</h3>
+                                <h3>BẢNG XẾP HẠNG HIỆP SĨ</h3>
                                 <div class="content">
                                 <ul>
                                 <?php
@@ -176,7 +176,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                 ?>
                                 </ul>
                                 </div>
-                                <a href="ranking.html"><h4>Xem chi tiết</h4></a>
+                                <a href="ranking.html"><h4>Xem danh sách đầy đủ</h4></a>
                                 <div style="clear:both"></div>
                             </div>
                         </div>

@@ -109,7 +109,7 @@ if(isset($_SESSION['cart_items']) && $_SESSION['cart_items']){
                     <li class="<?php echo $l =='ranking.html' ? 'active' : ''; ?> has-icon has-title">
                         <a href="ranking.html">
                             <i class="icon icon-characters"></i>
-                            <span class="item-title"> Xếp hạng</span>
+                            <span class="item-title"> Bảng xếp hạng</span>
                         </a>
                     </li>
                      <li class="<?php echo $l =='marking.html' ? 'active' : ''; ?> has-icon has-title">
@@ -121,7 +121,7 @@ if(isset($_SESSION['cart_items']) && $_SESSION['cart_items']){
                     <li class="<?php echo $l =='videos.html' ? 'active' : ''; ?> has-icon has-title">
                         <a href="videos.html">
                             <i class="icon icon-play-sign"></i>
-                            <span class="item-title"> Phim</span>
+                            <span class="item-title"> Xem phim</span>
                         </a>
                     </li>
                     <li class="<?php echo ($l =='products.html' || $l=='product_detail.html') ? 'active' : ''; ?> has-icon has-title">
@@ -138,7 +138,7 @@ if(isset($_SESSION['cart_items']) && $_SESSION['cart_items']){
                     <li class="<?php echo ($l =='news.html' || $l=='news_detail.html') ? 'active' : ''; ?> has-icon has-title">
                         <a href="news.html">
                             <i class="icon icon-devices"></i>
-                            <span class="item-title"> Tin tức</span>
+                            <span class="item-title"> Lịch đấu trường</span>
                         </a>
                     </li>
                     <li class="has-icon has-title" id="home-cart">

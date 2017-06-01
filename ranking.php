@@ -10,22 +10,6 @@ if($id_tuan){
 }
 $list_tuan = $hiepsituan->get_all_list();
 $xephang_cn = 0;
-if($users->isLoggedIn()){
-    $id_user = $users->get_userid();
-    $nguoichoi->id_user = $id_user;
-    $diem_1_cn = $nguoichoi->get_maxdiem(1);
-    $diem_2_cn = $nguoichoi->get_maxdiem(2);
-    $diem_3_cn = $nguoichoi->get_sumdiem(3);
-    $diem_4_cn = $nguoichoi->get_sumdiem(4);
-    $diem_5_cn = $nguoichoi->get_sumdiem(5);
-    $tongdiem_cn = $diem_1_cn + $diem_2_cn + $diem_3_cn + $diem_4_cn + $diem_5_cn;
-    $sum_xephang = $nguoichoi->sum_xephang();
-    if($sum_xephang){
-        foreach ($sum_xephang as $key => $value) {
-            if($id_user == $value['_id']) $xephang_cn = $key+1;
-        }
-    }
-}
 $list = $nguoichoi->get_distinct_user();
 $arr_user = array();
 if($list){
@@ -49,26 +33,6 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
             <div class="grid-column">
                 <div class="primary-site-content">
                     <div class="nexo-screen-decoration-top"></div>
-                    <?php if($users->isLoggedIn()): ?>
-                    <div class="grid-row nexo-frontpage-ranking">
-                        <div class="grid-column">
-                          <div class="grid-content ranking-canhan" style="margin:auto;">
-                            <h3>Điểm sức mạnh cá nhân</h3>
-                            <ul>
-                                <li>Level game Merlok 2.0 <span><?php echo format_number($diem_1_cn);?> điểm</span></li>
-                                <li>Số khiên sức mạnh<span><?php echo format_number($diem_2_cn);?> điểm</span></li>
-                                <li>Điểm mua hàng<span><?php echo format_number($diem_3_cn);?> điểm</span></li>
-                                <li>Điểm tham gia “Đấu trường Hiệp sĩ”<span><?php echo format_number($diem_4_cn);?> điểm</span></li>  
-                                <li>Điểm tham gia “Đại hội Hiệp sĩ”<span><?php echo format_number($diem_5_cn);?> điểm</span></li>
-                                <li>Tổng điểm<span><?php echo format_number($tongdiem_cn);?> điểm</span></li>
-                                <li>Thứ hạng<span><?php echo $xephang_cn; ?></span></li>
-                            </ul>
-                            <a href="status.html"><h4>Xem trạng thái cập nhật</h4></a>
-                            <div style="clear:both"></div>
-                        </div>
-                        </div>
-                    </div>
-                    <?php endif; ?>
                     <div class="grid-row nexo-frontpage-ranking">
                         <div class="grid-column">
                             <div class="grid-content home-ranking-content" style="margin:auto;">
@@ -78,7 +42,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                 <?php
                                 if($arr_user){
                                     foreach($arr_user as $k => $a){
-                                        if($k < 100 && $a['diem'] > 0){
+                                        if($a['diem'] > 0){
                                             $users->id = $a['id_user'];$u = $users->get_one();
                                             echo '<li>'.($k+1).'. <a href="profiles.html?id_user='.$a['id_user'].'" style="float:none;">'.$u['hoten'].'</a> <span>'.format_number($a['diem']).' điểm</span></li>';    
                                         }
@@ -120,8 +84,8 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                     </div>
                     <div class="grid-row nexo-frontpage-ranking">
                         <div class="grid-column">
-                            <div class="grid-content ranking-content" style="margin:auto;">
-                                <h3>XEM BẢNG VINH DANH CÁC TUẦN KHÁC</h3>
+                            <div class="grid-content ranking-content" style="margin:auto; border: 3px solid #ffff00;padding:20px; border-radius: 20px;background-color:#262626;">
+                                <h3 style="color:#ffff00;">XEM BẢNG VINH DANH CÁC TUẦN KHÁC</h3>
                                 <ul>
                                 <?php
                                 if($list_tuan){
