@@ -1,11 +1,14 @@
 <?php
 require_once('header.php');
-/*if(!$users->isLoggedIn()){
-    transfers_to('login.html?url=' . $_SERVER['REQUEST_URI']);
-}*/
+if($users->isLoggedIn()){
+    //transfers_to('login.html?url=' . $_SERVER['REQUEST_URI']);
+    $id_user_login = $users->get_userid();
+} else {
+    $id_user_login = '';
+}
 $nguoichoi = new NguoiChoi();
-//$id_user = $users->get_userid();
-$id_user = isset($_GET['id_user']) ? $_GET['id_user'] : $users->get_userid();
+$id_user_login = $users->get_userid();
+$id_user = isset($_GET['id_user']) ? $_GET['id_user'] : $users->get_userid();;
 $nguoichoi->id_user = $id_user;$nguoichoi_list = $nguoichoi->get_list_by_user();
 $diem_1_cn = $nguoichoi->sum_diem_canhan(1);
 $diem_2_cn = $nguoichoi->sum_diem_canhan(2);
@@ -78,7 +81,9 @@ $users->id = $id_user; $u = $users->get_one();
                                 <li>Thành phố: <?php //echo $tenthanhpho; ?></li>
                                 <li>Email: <?php //echo $u['email']; ?></li>-->
                             </ul>
-                            <a href="users_edit.html"><h4>Chỉnh sửa</h4></a>
+                            <?php if($id_user_login == $id_user): ?>
+                                <a href="users_edit.html"><h4>Chỉnh sửa</h4></a>
+                            <?php endif; ?>
                             <div style="clear:both"></div>
                         </div>
                         </div>

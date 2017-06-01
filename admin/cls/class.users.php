@@ -92,6 +92,12 @@ class Users{
 		return $this->_collection->update($condition, $query);
 	}
 
+	public function set_username(){
+		$query = array('$set' => array('username' => $this->username));
+		$condition = array('_id' => new MongoId($this->id));
+		return $this->_collection->update($condition, $query);
+	}
+
 	public function change_password(){
 		$query = array('$set' => array('password' => md5($this->password)));
 		$condition = array('_id' => new MongoId($this->id));
@@ -122,7 +128,7 @@ class Users{
 	}
 
 	public function get_userid(){
-		return $_SESSION['user_id'];
+		return isset($_SESSION['user_id']) ? $_SESSION['user_id'] : '';
 	}
 
 	public function is_admin(){

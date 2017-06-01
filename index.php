@@ -1,5 +1,5 @@
 <?php require_once('header.php');
-$nguoichoi = new NguoiChoi();
+$nguoichoi = new NguoiChoi();$banner = new Banner();
 $list = $nguoichoi->get_distinct_user();
 $arr_user = array();
 if($list){
@@ -97,6 +97,21 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                         <div class="grid-column">
                             <div class="grid-content">
                                 <ul lego-slider data-format="sixteen-nine" data-expand-on-mobile="False" data-lego-out="" lego-element-size data-uitest="slider-slider" data-slider-config='{ "autoAdvance": { "active": false, "delay": 0, "interim": 0 } }'>
+                                <?php
+                                $t = $banner->get_one();
+                                if($t && isset($t['banner']) && $t['banner']){
+                                    foreach ($t['banner'] as $b) {
+                                        echo '<li>';
+                                        echo $b['link'] ? '<a href="'.$b['link'].'" class="call-to-action list-item" data-xlink-handler lego-shopxlink-handler>' :'';
+                                        echo '<section class="primary-content">
+                                                <img src="'.$target_banner.$b['aliasname'].'" alt="" />
+                                                <i class="icon icon-explore is-top-right "></i>
+                                            </section>';
+                                        echo $b['link'] ? '</a>' : '';
+                                        echo '</li>';
+                                    }
+                                } else {
+                                ?>
                                     <li>
                                         <a href="guides.html" class="call-to-action list-item" data-xlink-handler lego-shopxlink-handler>
                                             <section class="primary-content">
@@ -134,6 +149,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                             </section>-->
                                         </a>
                                     </li>
+                                <?php } ?>
                                 </ul>
                             </div>
                         </div>

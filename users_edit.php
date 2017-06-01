@@ -54,9 +54,12 @@ if(isset($_POST['submit'])){
 }
 $u = $users->get_one();
 $username = $u['username']; $hoten = $u['hoten'];
-$namsinh = $u['namsinh']; $sodienthoai = $u['sodienthoai'];
-$diachi = $u['diachi']; $id_dmthanhpho = $u['id_dmthanhpho'];
-$email = $u['email']; $hinhanh = $u['hinhanh'];
+$namsinh = isset($u['namsinh']) ? $u['namsinh'] : '';
+$sodienthoai = isset($u['sodienthoai']) ? $u['sodienthoai'] : '';
+$diachi = isset($u['diachi']) ? $u['diachi'] : '';
+$id_dmthanhpho = isset($u['id_dmthanhpho']) ? $u['id_dmthanhpho'] : '';
+$email = isset($u['email']) ? $u['email'] : '';
+$hinhanh = isset($u['hinhanh']) ? $u['hinhanh'] : '';
 ?>
 <link rel="stylesheet" type="text/css" href="css/universh/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/universh/default.css">

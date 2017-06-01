@@ -170,6 +170,8 @@ if($users->isLoggedIn() && !$users->is_admin() && !$users->is_manager()){
                         <span>QUẢN LÝ</span>
                     </a>
                     <ul class="sub-menu">
+                        <li class="divider"></li>
+                        <li><a href="banner.html">Banner</a></li>
                     	<li class="divider"></li>
                         <li><a href="dangky.html">Đăng ký nhanh Tài khoản</a></li>
                     	<li class="divider"></li>

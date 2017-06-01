@@ -3,8 +3,9 @@ require_once('header.php');
 check_permis($users->is_admin());
 if(isset($_POST['submit'])){
 	$username = isset($_POST['username']) ? $_POST['username'] : '';
+    $hoten = isset($_POST['hoten']) ? $_POST['hoten'] : '';
     $password = '123456';
-    $hoten = $username;
+    $hoten = $hoten;
     $users->username = $username;
     if($users->check_exist_username()){
         $msg = 'Tài khoản đã tồn tại';
@@ -37,14 +38,18 @@ if(isset($_POST['submit'])){
             </div>
             <div class="panel-body">
 		    	<div class="form-group">
-		            <div class="col-md-3">
+		            <div class="col-md-3 p-b-5">
 		            	<div class="input-group">
-	            			<input type="text" name="username" id="username" value="<?php echo isset($username) ? $username : ''; ?>" placeholder="Số điện thoại" class="form-control input-lg" data-parsley-required="true" style="font-size: 20px;"/>
-	            			<span class="input-group-addon p-0"><button name="submit" id="submit" value="OK" class="btn btn-primary btn-lg"><i class="fa fa-check-circle-o"></i> OK</button></span>
+	            			<input type="text" name="username" id="username" value="<?php echo isset($username) ? $username : ''; ?>" placeholder="Số điện thoại" class="form-control input-lg" data-parsley-required="true" style="font-size: 20px;"/>            			
 	            		</div>
 		            </div>
-		            <div class="col-md-3 col-sm-12 text-left">
-		            	
+                    <div class="col-md-3 p-b-5">
+                        <div class="input-group">
+                            <input type="text" name="hoten" id="hoten" value="<?php echo isset($hoten) ? $hoten : ''; ?>" placeholder="Họ tên" class="form-control input-lg" data-parsley-required="true" style="font-size: 20px;"/>                     
+                        </div>
+                    </div>
+		            <div class="col-md-3">
+		            	<button name="submit" id="submit" value="OK" class="btn btn-primary btn-lg"><i class="fa fa-check-circle-o"></i> OK</button>
 		            </div>
 		        </div>
 		    </div>

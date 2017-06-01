@@ -58,10 +58,9 @@ if(isset($_GET['submit'])){
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Hình ảnh</th>
                     <th>Tài khoản người dùng</th>
                     <th>Họ tên</th>
-                    <th>Địa chỉ</th>
+                    <th>Ngày đăng ký</th>
                     <th class="text-center">ADMIN</th>
                     <th class="text-center">MANAGER</th>
                     <th class="text-center">USERS</th>
@@ -76,14 +75,13 @@ if(isset($_GET['submit'])){
                         $danhmucthanhpho->id = $ul['id_dmthanhpho']; $ct = $danhmucthanhpho->get_one();
                         $diachi = $ct['diachi'];
                     } else { $diachi = ''; }*/
-                    $diachi = isset($ul['diachi']) ? $ul['diachi'] : '';
+                    //$diachi = isset($ul['diachi']) ? $ul['diachi'] : '';
                     if($i%2==0) $class='eve'; else $class = 'odd';
                     echo '<tr class="'.$class.'">';
                     echo '<td>'.$i.'</td>';
-                    echo '<td>'.($ul['hinhanh'] ? '<img src="image.html?id='.$ul['hinhanh'].'" height="20">' : '').'</td>';
                     echo '<td>'.$ul['username'].'</td>';
                     echo '<td>'.$ul['hoten'].'</td>';
-                    echo '<td>'.$diachi.'</td>';
+                    echo '<td>'. (isset($ul['date_post']) ? date("d/m/Y H:i", $ul['date_post']->sec) : '').'</td>';
                     echo '<td class="text-center">'.(($ul['roles'] & ADMIN) ? '<i class="fa fa-check-circle-o text-success"></i>' : '<i class="fa fa-minus-circle text-danger"></i>').'</td>';
                     echo '<td class="text-center">'.(($ul['roles'] & MANAGER) ? '<i class="fa fa-check-circle-o text-success"></i>' : '<i class="fa fa-minus-circle text-danger"></i>').'</td>';
                     echo '<td class="text-center">'.(($ul['roles'] & USERS) ? '<i class="fa fa-check-circle-o text-success"></i>' : '<i class="fa fa-minus-circle text-danger"></i>').'</td>';

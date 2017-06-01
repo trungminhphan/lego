@@ -11,6 +11,8 @@
 	$target_videos_home = '../uploads/videos/';
 	$target_images = 'uploads/images/';
 	$target_images_home = '../uploads/images/';
+	$target_banner = 'uploads/banner/';
+	$target_banner_home = '../uploads/banner/';
 	$files_extension = array('pdf', 'zip', 'rar', 'doc', 'docx', 'xls', 'png', 'gif', 'jpg', 'jpeg', 'bmp', 'rtf');
 	$videos_extension = array('mp4', 'ogg', 'webm');
 	$images_extension = array('png', 'gif', 'jpg', 'jpeg', 'bmp');
