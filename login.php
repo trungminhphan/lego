@@ -8,13 +8,18 @@ if(isset($_POST['submit'])){
     $username = $_POST['username'] ? $_POST['username'] : '';
     $password = $_POST['password'] ? $_POST['password'] : '';
     $url = $_POST['url'] ? $_POST['url'] : '';
-    if ($users->authenticate($username, $password)) {
+    if($username && $password){
+        if ($users->authenticate($username, $password)) {
         $users->push_logs_in();
         if($url) transfers_to($url);
-        else transfers_to('profiles.html');
+            else transfers_to('profiles.html');
+        } else {
+            $msg = 'Lỗi đăng nhập, vui lòng kiểm tra tài khoản và mật khẩu';
+        }    
     } else {
-        $msg = 'Lỗi đăng nhập, vui lòng kiểm tra tài khoản và mật khẩu';
+        $msg = 'Hãy nhập tài khoản đăng nhập và mật khẩu';
     }
+    
 }
 ?>
 <link rel="stylesheet" type="text/css" href="css/universh/bootstrap.min.css">
@@ -40,10 +45,10 @@ if(isset($_POST['submit'])){
                 <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>" id="loginform">
                     <input type="hidden" name="url" id="url" value="<?php echo isset($url) ? $url : ''; ?>">
                     <div class="input-text form-group">
-                        <input type="text" name="username" id="username" value="<?php echo isset($username) ? $username: ''; ?>" class="input-name form-control" placeholder="Tên tài khoản" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
+                        <input type="text" name="username" id="username" required value="<?php echo isset($username) ? $username: ''; ?>" class="input-name form-control" placeholder="Tên tài khoản" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
                     </div>
                     <div class="input-email form-group">
-                        <input type="password" name="password" id="password" value="<?php echo isset($password) ? $password: ''; ?>" class="form-control" placeholder="Mật khẩu" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
+                        <input type="password" name="password" id="password" required value="<?php echo isset($password) ? $password: ''; ?>" class="form-control" placeholder="Mật khẩu" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" />
                     </div>
                     <div class="text-center">
                         <button class="btn-shopping" name="submit" type="submit"><i class="glyphicon glyphicon-log-in"></i> Đăng nhập</button>
