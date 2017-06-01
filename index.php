@@ -161,15 +161,15 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                     <div class="grid-row nexo-frontpage-ranking">
                         <div class="grid-column">
                             <div class="grid-content home-ranking-content">
-                                <h3>BẢNG VINH DANH HIỆP SĨ</h3>
+                                <h3>BẢNG XẾP HẠNG</h3>
                                 <div class="content">
                                 <ul>
                                 <?php
                                 if($arr_user){
                                     foreach($arr_user as $k => $a){
-                                        if($k < 20 && $a['diem'] > 0){
+                                        if($k < 100 && $a['diem'] > 0){
                                             $users->id = $a['id_user'];$u = $users->get_one();
-                                            echo '<li>'.($k+1).'. <a href="profiles.html?id_user='.$a['id_user'].'" style="float:none;">'.$u['username'].'</a> <span>'.format_number($a['diem']).' điểm</span></li>';    
+                                            echo '<li>'.($k+1).'. <a href="profiles.html?id_user='.$a['id_user'].'" style="float:none;">'.$u['hoten'].'</a> <span>'.format_number($a['diem']).' điểm</span></li>';    
                                         }
                                     }
                                 }

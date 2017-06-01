@@ -168,7 +168,7 @@ $list = $nguoichoi->get_distinct_user();
                     <input type="hidden" name="id_user" id="id_user" />
                     <input type="hidden" name="act" id="act" value="khongxetduyet"/>
                     <input type="hidden" name="collapse" id="collapse_duyet" value="">
-                    <input type="text" name="noidung" id="noidung" value="" class="form-control" data-parsley-required="true"/>
+                    <input type="text" name="noidung" id="noidung" value="" class="form-control"/>
                 </div>
             </div>
             <div class="modal-footer">

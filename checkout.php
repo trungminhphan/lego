@@ -4,15 +4,15 @@ $id_user = ''; $sanpham = new SanPham();$donhang = new DonHang();
 require('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'pro11.emailserver.vn';  // Specify main and backup SMTP servers
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'info@southernrct.com';             // SMTP username
-$mail->Password = 'info789%';                        // SMTP password
+$mail->Username = 'legomarketingteam@gmail.com';             // SMTP username
+$mail->Password = 'qyohhytkzlfrapos';                        // SMTP password
 $mail->SMTPSecure = 'ssl';                          // SMTP password
 $mail->Port = 465;                                   // TCP port to connect to
 $mail->CharSet = 'UTF-8';
-$mail->setFrom('info@southernrct.com', 'HIEPSINEXO.COM');
-$mail->addAddress('hiepsinexo@viettinhanh.com.vn', 'THÔNG TIN ĐƠN HÀNG');
+$mail->setFrom('legomarketingteam@gmail.com', 'HIEPSINEXO.COM');
+$mail->addAddress('legomarketingteam@gmail.com', 'THÔNG TIN ĐƠN HÀNG');
 $mail->isHTML(true);
 $mail->Subject = 'HIEPSINEXO.COM - THÔNG TIN ĐƠN HÀNG';
 if(!isset($_SESSION['cart_items'])){ $msg = 'Hãy chọn sản phẩm đưa vào giỏ hàng'; }
@@ -56,7 +56,7 @@ if(isset($_POST['submit']) && isset($_SESSION['cart_items'])){
     $donhang->thongtingiaohang = $thongtingiaohang;
     if($donhang->insert_id()){
         $mail->addAddress($email, $hoten);
-        $html = get_remote_data('http://local.com/lego/get.chitietdonhang_email.php?id='.$_id);
+        $html = get_remote_data('http://hiepsinexo.com/get.chitietdonhang_email.php?id='.$_id);
         $mail->Body    = $html;
         $mail->AltBody = $html;
         $mail->send();

@@ -31,6 +31,7 @@ $nguoichoi_list = $nguoichoi->get_all_list();
                             <!--<th class="text-center">Hình ảnh</th>-->
                             <th class="text-center">Mã số</th>
                             <th class="text-center">Điểm</th>
+                            <th class="text-center">Ngày nhập</th>
                             <th class="text-center">Tình trạng</th>
                             <th class="text-center"><i class="fa fa-trash"></i></th>
                         </tr>
@@ -46,9 +47,10 @@ $nguoichoi_list = $nguoichoi->get_all_list();
                             echo '<td>'.$i.'</td>';
                             echo '<td>'.$us['username'].'</td>';
                            // echo '<td class="text-center">'. ($nc['hinhanh'] ? '<a href="image.html?id='.$nc['hinhanh'].'" data-lightbox="gallery-group-1"><img src="image.html?id='.$nc['hinhanh'].'" height="30" /></a>' : '').'</td>';
-                            echo '<td class="text-center">'.$nc['maso'].'</td>';
-                            echo '<td class="text-center">'.(isset($nc['diem']) ? $nc['diem'] : '').'</td>';
-                            echo '<td class="text-center"><a href="get.nguoichoi_5.html?id='.$nc['_id'].'&act=check#modal-kiemduyet" class="kiemduyet" data-toggle="modal">'.$arr_tinhtrang[$tt].'</a></td>';
+                            echo '<td class="text-center" width="150">'.$nc['maso'].'</td>';
+                            echo '<td class="text-center" width="100">'.(isset($nc['diem']) ? $nc['diem'] : '').'</td>';
+                            echo '<td class="text-center" width="150">'.date("d/m/Y H:i", $nc['date_post']->sec).'</td>';
+                            echo '<td class="text-center" width="300"><a href="get.nguoichoi_5.html?id='.$nc['_id'].'&act=check#modal-kiemduyet" class="kiemduyet" data-toggle="modal">'.$arr_tinhtrang[$tt].'</a></td>';
                             echo '<td class="text-center"><a href="get.nguoichoi_5.html?id='.$nc['_id'].'&act=del" onclick="return confirm(\'Chắc chắn muốn xoá\');"><i class="fa fa-trash"></i></a></td>';
                             echo '</tr>';$i++;
                         }

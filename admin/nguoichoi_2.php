@@ -32,6 +32,7 @@ $fs = new GridFS();
                             <th class="text-center">Hình ảnh</th>
                             <th class="text-center">Cấp độ</th>
                             <th class="text-center">Điểm</th>
+                            <th class="text-center">Ngày nhập</th>
                             <th class="text-center">Tình trạng</th>
                             <th class="text-center"><i class="fa fa-trash"></i></th>
                         </tr>
@@ -57,6 +58,7 @@ $fs = new GridFS();
                             echo '<td class="text-center">'. ($nc['hinhanh'] ? '<a href="'.$target_images_home.'medium-size/'.$nc['hinhanh'].'_'.$object->file['filename'].'" data-lightbox="gallery-group-1"><img src="'.$target_images_home.'/thumb-size/'.$nc['hinhanh'].'_'.$object->file['filename'].'" height="30" /></a>' : '').'</td>';
                             echo '<td class="text-center">'.$nc['capdo'].'</td>';
                             echo '<td class="text-center">'.(isset($nc['diem']) ? $nc['diem'] : '').'</td>';
+                            echo '<td class="text-center">'.date("d/m/Y H:i", $nc['date_post']->sec).'</td>';
                             echo '<td class="text-center"><a href="get.nguoichoi_2.html?id='.$nc['_id'].'&act=check#modal-kiemduyet" class="kiemduyet" data-toggle="modal">'.$arr_tinhtrang[$tt].'</a></td>';
                             echo '<td class="text-center"><a href="get.nguoichoi_2.html?id='.$nc['_id'].'&act=del" onclick="return confirm(\'Chắc chắn muốn xoá\');"><i class="fa fa-trash"></i></a></td>';
                             echo '</tr>';$i++;

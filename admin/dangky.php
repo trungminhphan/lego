@@ -4,7 +4,7 @@ check_permis($users->is_admin());
 if(isset($_POST['submit'])){
 	$username = isset($_POST['username']) ? $_POST['username'] : '';
     $hoten = isset($_POST['hoten']) ? $_POST['hoten'] : '';
-    $password = '123456';
+    $password = '12345';
     $hoten = $hoten;
     $users->username = $username;
     if($users->check_exist_username()){

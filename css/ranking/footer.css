@@ -222,8 +222,8 @@ footer .container {
     font-size: 28px; border-bottom: 1px dotted #ccc;
 }
 .nexo-frontpage-ranking .home-ranking-content ul li{
-    width: 300px; padding: 1px; font-family: "Robotesqa4F", "Roboto";
-    font-size: 20px;
+    width: 320px; padding: 1px; font-family: "Robotesqa4F", "Roboto";
+    font-size: 15px;
 }
 .nexo-frontpage-ranking .home-ranking-content ul li span,
 .nexo-frontpage-ranking .ranking-canhan ul li span{

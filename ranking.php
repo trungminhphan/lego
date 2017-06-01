@@ -9,20 +9,20 @@ if($id_tuan){
     $hst = $hiepsituan->get_newest();
 }
 $list_tuan = $hiepsituan->get_all_list();
+$xephang_cn = 0;
 if($users->isLoggedIn()){
     $id_user = $users->get_userid();
     $nguoichoi->id_user = $id_user;
-    $diem_1 = $nguoichoi->sum_diem_canhan(1);
-    $diem_2 = $nguoichoi->sum_diem_canhan(2);
-    $diem_3 = $nguoichoi->sum_diem_canhan(3);
-    $diem_4 = $nguoichoi->sum_diem_canhan(4);
-    $diem_5 = $nguoichoi->sum_diem_canhan(5);
-    $tongdiem = $diem_1 + $diem_2 + $diem_3 + $diem_4 + $diem_5;
+    $diem_1_cn = $nguoichoi->get_maxdiem(1);
+    $diem_2_cn = $nguoichoi->get_maxdiem(2);
+    $diem_3_cn = $nguoichoi->get_sumdiem(3);
+    $diem_4_cn = $nguoichoi->get_sumdiem(4);
+    $diem_5_cn = $nguoichoi->get_sumdiem(5);
+    $tongdiem_cn = $diem_1_cn + $diem_2_cn + $diem_3_cn + $diem_4_cn + $diem_5_cn;
     $sum_xephang = $nguoichoi->sum_xephang();
-    $xephang = 0;
     if($sum_xephang){
         foreach ($sum_xephang as $key => $value) {
-            if($id_user == $value['_id']) $xephang = $key+1;
+            if($id_user == $value['_id']) $xephang_cn = $key+1;
         }
     }
 }
@@ -55,13 +55,13 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                           <div class="grid-content ranking-canhan" style="margin:auto;">
                             <h3>Điểm sức mạnh cá nhân</h3>
                             <ul>
-                                <li>Level game Merlok 2.0 <span><?php echo format_number($diem_1);?> điểm</span></li>
-                                <li>Số khiên sức mạnh<span><?php echo format_number($diem_2);?> điểm</span></li>
-                                <li>Điểm mua hàng<span><?php echo format_number($diem_3);?> điểm</span></li>
-                                <li>Điểm tham gia “Đấu trường Hiệp sĩ”<span><?php echo format_number($diem_4);?> điểm</span></li>  
-                                <li>Điểm tham gia “Đại hội Hiệp sĩ”<span><?php echo format_number($diem_5);?> điểm</span></li>
-                                <li>Tổng điểm<span><?php echo format_number($tongdiem);?> điểm</span></li>
-                                <li>Thứ hạng<span><?php echo $xephang; ?></span></li>
+                                <li>Level game Merlok 2.0 <span><?php echo format_number($diem_1_cn);?> điểm</span></li>
+                                <li>Số khiên sức mạnh<span><?php echo format_number($diem_2_cn);?> điểm</span></li>
+                                <li>Điểm mua hàng<span><?php echo format_number($diem_3_cn);?> điểm</span></li>
+                                <li>Điểm tham gia “Đấu trường Hiệp sĩ”<span><?php echo format_number($diem_4_cn);?> điểm</span></li>  
+                                <li>Điểm tham gia “Đại hội Hiệp sĩ”<span><?php echo format_number($diem_5_cn);?> điểm</span></li>
+                                <li>Tổng điểm<span><?php echo format_number($tongdiem_cn);?> điểm</span></li>
+                                <li>Thứ hạng<span><?php echo $xephang_cn; ?></span></li>
                             </ul>
                             <a href="status.html"><h4>Xem trạng thái cập nhật</h4></a>
                             <div style="clear:both"></div>
@@ -73,18 +73,20 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                         <div class="grid-column">
                             <div class="grid-content home-ranking-content" style="margin:auto;">
                                 <h3>BẢNG XẾP HẠNG HIỆP SĨ</h3>
+                                <div class="content">
                                 <ul>
                                 <?php
                                 if($arr_user){
                                     foreach($arr_user as $k => $a){
-                                        if($k < 20 && $a['diem'] > 0){
+                                        if($k < 100 && $a['diem'] > 0){
                                             $users->id = $a['id_user'];$u = $users->get_one();
-                                            echo '<li>'.($k+1).'. <a href="profiles.html?id_user='.$a['id_user'].'" style="float:none;">'.$u['username'].'</a> <span>'.format_number($a['diem']).' điểm</span></li>';    
+                                            echo '<li>'.($k+1).'. <a href="profiles.html?id_user='.$a['id_user'].'" style="float:none;">'.$u['hoten'].'</a> <span>'.format_number($a['diem']).' điểm</span></li>';    
                                         }
                                     }
                                 }
                                 ?>
                                 </ul>
+                                </div>
                                 <div style="clear:both"></div>
                             </div>
                         </div>

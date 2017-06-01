@@ -32,8 +32,8 @@
 
 	$arr_tinhtrang = array(
 		0 => 'Chưa xử lý',
-		1 => 'Đã xử lý',
-		2 => 'Huỷ bỏ'
+		1 => 'Nhập điểm thành công',
+		2 => 'Không hợp lệ'
 	);
 
 	$arr_body = array(
