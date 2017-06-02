@@ -72,7 +72,6 @@ if(isset($_POST['submit'])){
 <link href="assets/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
 <link href="assets/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" />
-<link href="assets/plugins/summernote/summernote.css" rel="stylesheet" />
 <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST" class="form-horizontal" data-parsley-validate="true" name="bannerform" id="tintucform" enctype="multipart/form-data">
 <div class="row">
 	<div class="col-md-12">
@@ -120,7 +119,7 @@ if(isset($_POST['submit'])){
                 <div class="form-group">
                     <label class="col-md-3 control-label">Mô tả sản phẩm</label>
                     <div class="col-md-9">
-                        <textarea class="form-control summernote" name="mota" id="mota" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($mota) ? $mota : ''; ?></textarea>
+                        <textarea class="form-control" name="mota" id="mota" placeholder="Mô tả" rows="5" data-parsley-required="true"><?php echo isset($mota) ? $mota : ''; ?></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -177,8 +176,7 @@ if(isset($_POST['submit'])){
 <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 <script src="assets/plugins/switchery/switchery.min.js"></script>
 <script src="assets/js/form-slider-switcher.demo.min.js"></script>
-<script src="assets/plugins/summernote/summernote.min.js"></script>
-<script src="assets/js/form-summernote.demo.min.js"></script>
+<script src="assets/plugins/ckeditor/ckeditor.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
@@ -194,6 +192,12 @@ if(isset($_POST['submit'])){
             time:""
         });
         <?php endif; ?>
-        App.init();FormSummernote.init();FormSliderSwitcher.init();TableManageDefault.init();
+         CKEDITOR.replace( 'mota', {
+            filebrowserBrowseUrl: 'assets/plugins/ckfinder/ckfinder.html',
+            filebrowserUploadUrl: 'assets/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserWindowWidth: '1000',
+            filebrowserWindowHeight: '700'
+        });
+        App.init();FormSliderSwitcher.init();TableManageDefault.init();
     });
 </script>

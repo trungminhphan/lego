@@ -43,8 +43,8 @@ if(isset($_SESSION['cart_items']) && $_SESSION['cart_items']){
         <i class="hidden-breakpoint-observer"></i>
         <div class="lego-global-header-wrap">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="lego-brand">
-                <a href="http://www.hiepsinexo.com" class="logo"></a>
+            <div class="lego-brand" name="http://hiepsinexo.com">
+                <a href="http://hiepsinexo.com" class="logo"></a>
             </div>
             <!-- Shroud for drop down navigation -->
             <div class="shroud"></div>
@@ -53,7 +53,7 @@ if(isset($_SESSION['cart_items']) && $_SESSION['cart_items']){
                 <div class="lego-global-navigation">
                     <ul class="global-links">
                         <li  class="priority">
-                            <a class="gn-icon gn-icon-home"  href="index.html" target="">Trang chủ</a>
+                            <a class="gn-icon gn-icon-home" href="index.html" target="">Trang chủ</a>
                         </li>
                     </ul>
                 </div>
@@ -139,6 +139,12 @@ if(isset($_SESSION['cart_items']) && $_SESSION['cart_items']){
                         <a href="news.html">
                             <i class="icon icon-devices"></i>
                             <span class="item-title"> Lịch đấu trường</span>
+                        </a>
+                    </li>
+                    <li class="<?php echo ($l =='contacts.html') ? 'active' : ''; ?> has-icon has-title">
+                        <a href="contacts.html">
+                            <i class="icon icon-link"></i>
+                            <span class="item-title"> Liên hệ</span>
                         </a>
                     </li>
                     <li class="has-icon has-title" id="home-cart">

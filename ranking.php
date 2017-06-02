@@ -71,7 +71,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                         if($hs['hiepsi']){
                                             foreach ($hs['hiepsi'] as $key => $value) {
                                                 $users->id = $value['id_user']; $us = $users->get_one();
-                                                echo '<li>'.($key+1).'. <a href="profiles.html?id_user='.$value['id_user'].'" style="float:none;">'.$us['username'].'</a> <span>'.format_number($value['diem']).' điểm</span></li>';
+                                                echo '<li>'.($key+1).'. <a href="profiles.html?id_user='.$value['id_user'].'" style="float:none;">'.$us['hoten'].'</a> <span>'.format_number($value['diem']).' điểm</span></li>';
                                             }
                                         }
                                     }                                

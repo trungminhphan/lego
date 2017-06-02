@@ -81,7 +81,7 @@ if(isset($_GET['submit'])){
                     echo '<td>'.$i.'</td>';
                     echo '<td>'.$ul['username'].'</td>';
                     echo '<td>'.$ul['hoten'].'</td>';
-                    echo '<td>'. (isset($ul['date_post']) ? date("d/m/Y H:i", $ul['date_post']->sec) : '').'</td>';
+                    echo '<td width="150">'. (isset($ul['date_post']) ? date("d/m/Y H:i", $ul['date_post']->sec) : '').'</td>';
                     echo '<td class="text-center">'.(($ul['roles'] & ADMIN) ? '<i class="fa fa-check-circle-o text-success"></i>' : '<i class="fa fa-minus-circle text-danger"></i>').'</td>';
                     echo '<td class="text-center">'.(($ul['roles'] & MANAGER) ? '<i class="fa fa-check-circle-o text-success"></i>' : '<i class="fa fa-minus-circle text-danger"></i>').'</td>';
                     echo '<td class="text-center">'.(($ul['roles'] & USERS) ? '<i class="fa fa-check-circle-o text-success"></i>' : '<i class="fa fa-minus-circle text-danger"></i>').'</td>';

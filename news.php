@@ -28,7 +28,12 @@ $list = $tintuc->get_all_list();
 							<div class="blog-img-wrap">
 							<?php
 								if(isset($l['hinhanh'][0]['aliasname'])){
-									echo '<img width="600" height="220" src="'.$target_images.$l['hinhanh'][0]['aliasname'].'" class="img-responsive" alt="'.$l['tieude'].'">';
+									if(!file_exists($target_images . 'feature/' . $l['hinhanh'][0]['aliasname'])){
+										$file = $target_images . $l['hinhanh'][0]['aliasname'];
+										$feature = $target_images . 'feature/' . $l['hinhanh'][0]['aliasname'];
+										resize_image($file , null, 349 , 197 , false , $feature , false , false ,100 );
+									}
+									echo '<img width="600" height="220" src="'.$target_images.'feature/'.$l['hinhanh'][0]['aliasname'].'" class="img-responsive" alt="'.$l['tieude'].'">';
 								} else {
 									echo '<img width="600" height="220" src="images/70348_17_LancesTwinJouster_L_8col.jpg" class="img-responsive" alt="'.$l['tieude'].'">';
 								}

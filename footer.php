@@ -6,9 +6,11 @@
         <div class="row">
             <div class="col-9 copyright" itemscope itemtype="http://schema.org/Organization">
                 <img itemprop="logo" src="images/logo.png" height="56" alt="LEGO NEXO KNIGHTS" />
-                <span itemprop="name">&copy; Công Ty Cổ Phần Việt Tinh Anh</span><br />
+                <div  style="font-family:Segoe UI, Roboto;">
+                <span itemprop="name"><b>&copy; Công Ty Cổ Phần Việt Tinh Anh</b></span><br />
                 Địa chỉ: 33-35 Đường D4, Khu Đô Thị Mới Him Lam, P.Tân Hưng, Q.7, HCM. <br />
-                Điện thoại: (84-8) 54 31 8717 – 18
+                Điện thoại: (84-8) 54 31 8717 – 18 <br />
+                Email: legomarketingteam@gmail.com </div>
             </div>
             <!--<div class="col-3">
                 <ul class="link-footer">
@@ -20,6 +22,7 @@
     </div>
 </footer>
 <script type="text/javascript" src="js/nexoknights.js"></script>
+
 <!--[if IE 8]>
 <script src="js/lego-deprecatedwarning.min.js?l.r2=1.0.0.9"></script>
 <script type="text/javascript">
@@ -34,3 +37,16 @@
 <![endif]-->
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var width = $(window).width();      
+        if(parseInt(width) > 768){
+            $(".logo").click(function(){
+                var _link = $(this).attr("href");
+                $(".collapse-wrapper").hide();
+                window.location.href = _link;
+
+            });
+        }
+    });
+</script>

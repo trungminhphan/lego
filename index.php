@@ -25,8 +25,9 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                     <div class="grid-column">
                         <div class="grid-content">
                             <a href="marking.html" class="call-to-action list-item">
-                                <img src="images/nhapdiem.png" alt=""  style="width:100%;"/>                               
+                                <img src="images/nhapdiem-1.png" alt="" style="width:100%;"/>                               
                             </a>
+                            <a href="marking.html" class="btn-shopping" style="font-size:33px;padding:20px;font-style:normal;width:100%;"><i class="glyphicon glyphicon-star"></i> NHẬP ĐIỂM</a>
                             <ul class="list list-grid" lego-list lego-element-size data-size="2" data-format="square" data-uitest="list-simple" lego-element-size="">
                                 <li>
                                     <a href="ranking.html" class="call-to-action list-item" data-xlink-handler lego-shopxlink-handler>
@@ -34,7 +35,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                             <img src="images/menu_combomissions.jpeg?l.r2=685437489" alt="" />
                                         </section>
                                         <section class="secondary-content">
-                                            <h5 class="cta-headline">XẾP HẠNG</h5>
+                                            <h5 class="cta-headline">BẢNG XẾP HẠNG</h5>
                                             <h5 class="cta-subheadline"></h5>
                                         </section>
                                     </a>
@@ -72,15 +73,13 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                         </section>
                                     </a>
                                 </li>
-                                
-                                
                                 <li>
                                     <a href="news.html" class="call-to-action list-item" data-xlink-handler lego-shopxlink-handler>
                                         <section class="primary-content">
                                             <img src="images/menu_nexopowers_05.jpeg?l.r2=-515281291" alt="" />
                                         </section>
                                         <section class="secondary-content">
-                                            <h5 class="cta-headline">TIN TỨC</h5>
+                                            <h5 class="cta-headline">LỊCH ĐẤU TRƯỜNG</h5>
                                             <h5 class="cta-subheadline"></h5>
                                         </section>
                                     </a>
@@ -102,12 +101,12 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                 if($t && isset($t['banner']) && $t['banner']){
                                     foreach ($t['banner'] as $b) {
                                         echo '<li>';
-                                        echo $b['link'] ? '<a href="'.$b['link'].'" class="call-to-action list-item" data-xlink-handler lego-shopxlink-handler>' :'';
+                                        echo $b['link'] ? '<a href="'.$b['link'].'" class="call-to-action list-item" data-xlink-handler lego-shopxlink-handler>' :'<a href="#" class="call-to-action list-item" data-xlink-handler lego-shopxlink-handler>';
                                         echo '<section class="primary-content">
                                                 <img src="'.$target_banner.$b['aliasname'].'" alt="" />
                                                 <i class="icon icon-explore is-top-right "></i>
                                             </section>';
-                                        echo $b['link'] ? '</a>' : '';
+                                        echo '</a>';
                                         echo '</li>';
                                     }
                                 } else {

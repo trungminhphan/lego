@@ -14,7 +14,7 @@ $sanpham_list = $sanpham->get_all_list();
 						<div class="hgroup">
 							<h2>Sản phẩm</h2>
 						</div>
-						<ul class="list list-grid" data-format="sixteen-nine" data-size="3" data-uitest="list-simple">
+						<ul class="list list-grid" data-format="sixteen-nine" data-size="4" data-uitest="list-simple">
 						<?php if($sanpham_list) : ?>
 							<?php foreach($sanpham_list as $sp): ?>
 								<li>

@@ -29,7 +29,6 @@ $list = $huongdan->get_all_list();
 						<?php //echo preg_replace('/(<[^>]*) style=("[^"]+"|\'[^\']+\')([^>]*>)/i', '$1$3', $tt['noidung']); ?>
 						<?php echo $tt['noidung']; ?>
 						
-					
 					</div><!-- Blog Detail Wrapper -->
 				</div><!-- Blog Wrapper -->
 				<?php if($tt['hinhanh']): ?>

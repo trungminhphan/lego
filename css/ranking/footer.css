@@ -148,7 +148,7 @@ footer .container {
 }
 .nexo-frontpage-ranking .home-ranking-content h3,
 .nexo-frontpage-ranking .ranking-canhan h3 {
-    text-align:  center; padding:  10px 0px 0px 0px; margin: 0px;color: #ffff00;
+    text-align:  center; padding: 10px 0px 0px 0px; margin: 0px;color: #ffff00;
     font-size:  40px;
 }
 .nexo-frontpage-ranking .ranking-canhan ul{
@@ -252,11 +252,14 @@ footer .container {
         border: 5px solid #ffff00;
         height: auto;
     }
+    .nexo-frontpage-ranking .home-ranking-content{
+        padding: 0px;
+    }
     .nexo-frontpage-ranking .home-ranking-content ul{
         margin:  0px;
     }
     .nexo-frontpage-ranking .home-ranking-content ul li{
-        font-size: 15px;  width: 250px;
+        font-size: 15px;  width: 310px;
     }
     .nexo-frontpage-ranking .ranking-canhan ul{
         padding: 0px;margin: 0px;
@@ -277,13 +280,56 @@ footer .container {
         margin: 0px;
         padding:0px 0px 0px 20px;
     }
-     .nexo-frontpage-ranking .home-ranking-content ul li {
-        width: 300px;
-     }
+    .nexo-frontpage-ranking .home-ranking-content ul li {
+        width: 500px;
+    }
+    .grid-content .list-grid {
+        text-align: center;
+    }
 }
+
 @media screen and (max-width: 414px) {
+    .nexo-frontpage-ranking .ranking-content h3,
+    .nexo-frontpage-ranking .home-ranking-content h3{
+        font-size: 20px;
+    }
+
+    .nexo-frontpage-ranking .home-ranking-content ul{
+        padding: 10px; margin: 0px !important;
+    }
     .nexo-frontpage-ranking .home-ranking-content ul li{
-        width: 280px;
+        width: 330px; padding: 0px; font-size: 14px;
+    }
+    footer .container { width: 350px; }
+    .blog-list-wrap{
+        padding:0px 20px 0px 0px;
+    }
+    .grid-content .list-grid {
+        text-align: center;
+    }
+    .page-default .title-container .title,
+    .blog-single-wrap .blog-single-details h4 {
+        font-size: 25px;
+    }
+    .blog-list-wrap .blog-details h4{
+        font-size: 20px;
+    }
+    .blog-list-wrap .blog-details {
+        font-size: 15px;
+    }
+
+    .blog-single-wrap .blog-single-details img{
+        width: 100% !important;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .nexo-frontpage-ranking .home-ranking-content ul{
+        padding: 10px; margin: 0px !important;
+    }
+    .nexo-frontpage-ranking .home-ranking-content ul li{
+        width: 290px; padding: 0px; font-size: 12px;
     }
 }
 
@@ -294,4 +340,8 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+.call-to-action:hover{
+    opacity: 0.6;
 }
