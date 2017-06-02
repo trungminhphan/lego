@@ -50,7 +50,7 @@ $nguoichoi_list = $nguoichoi->get_all_list();
                             echo '<td class="text-center">'.$nc['maso'].'</td>';
                             echo '<td class="text-center">'.(isset($nc['diem']) ? $nc['diem'] : '').'</td>';
                             echo '<td class="text-center">'.date("d/m/Y H:i", $nc['date_post']->sec).'</td>';
-                            echo '<td class="text-center"><a href="get.nguoichoi_4.html?id='.$nc['_id'].'&act=check#modal-kiemduyet" class="kiemduyet" data-toggle="modal">'.$arr_tinhtrang[$tt].'</a></td>';
+                            echo '<td class="text-center"><a href="get.nguoichoi_4.html?id='.$nc['_id'].'&act=check#modal-kiemduyet" class="kiemduyet" data-toggle="modal" id="tinhtrang_'.$nc['_id'].'">'.$arr_tinhtrang[$tt].'</a></td>';
                             echo '<td class="text-center"><a href="get.nguoichoi_4.html?id='.$nc['_id'].'&act=del" onclick="return confirm(\'Chắc chắn muốn xoá\');"><i class="fa fa-trash"></i></a></td>';
                             echo '</tr>';$i++;
                         }
@@ -63,7 +63,7 @@ $nguoichoi_list = $nguoichoi->get_all_list();
     </div>
 </div>
 <div class="modal fade" id="modal-kiemduyet">
-<form action="post.nguoichoi_4.html" method="POST" class="form-horizontal" data-parsley-validate="true" name="nguoichoiform" enctype="multipart/form-data">
+<form action="post.nguoichoi_4.html" method="POST" class="form-horizontal" data-parsley-validate="true" id="nguoichoiform" enctype="multipart/form-data">
 <input type="hidden" name="id" id="id" />
 <input type="hidden" name="act" id="act" />
 <input type="hidden" name="url" id="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -109,7 +109,7 @@ $nguoichoi_list = $nguoichoi->get_all_list();
 	            <div class="form-group">
 	                <label class="col-md-3 control-label">Nội dung xử lý</label>
 	                <div class="col-md-9">
-	                    <input type="text" name="noidung" id="noidung" value="" class="form-control" data-parsley-required="true"/>
+	                    <input type="text" name="noidung" id="noidung" value="" class="form-control"/>
 	                </div>
 	            </div>
 	            <div class="form-group">
@@ -121,7 +121,7 @@ $nguoichoi_list = $nguoichoi->get_all_list();
         	</div>
             <div class="modal-footer">
                 <a href="#" class="btn btn-sm btn-white" data-dismiss="modal">Đóng</a>
-                <button type="submit" name="submit" id="submit" class="btn btn-sm btn-success">Lưu</button>
+                <button name="submit" id="submit-kiemduyet" data-dismiss="modal" class="btn btn-sm btn-success">Lưu</button>
             </div>
         </div>
     </div>
@@ -135,16 +135,16 @@ $nguoichoi_list = $nguoichoi->get_all_list();
 <script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
 <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
 <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-<script src="assets/js/table-manage-default.demo.min.js"></script>
 <script src="assets/plugins/lightbox/js/lightbox.min.js"></script>
-    <script src="assets/js/gallery.demo.min.js"></script>
-
+<script src="assets/js/gallery.demo.min.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
     $(document).ready(function() {
+        var _id, _link;
         $(".kiemduyet").click(function(){
-            var _link = $(this).attr("href");
+            _link = $(this).attr("href");
+            _id = $(this).attr("id");
             $.getJSON(_link, function(data){
                 $("#id").val(data.id);$("#act").val(data.act);
                 $("#hotennguoichoi").html(data.hotennguoichoi);
@@ -154,6 +154,35 @@ $nguoichoi_list = $nguoichoi->get_all_list();
                 $("#old_hinhanh").val(data.old_hinhanh);
                 $("#noidung").val(data.noidung);
                 $("#diem").val(data.diem);
+                $("#submit-kiemduyet").click(function(){
+                    var formData = new FormData($("#nguoichoiform")[0]);
+                    $.ajax({
+                        url: "post.nguoichoi_1.php", type: "POST",
+                        data: formData, async: false,
+                        success: function(datas) {
+                            if(datas=='Failed'){
+                                $.gritter.add({
+                                    title:"Không thể duyệt",
+                                    text:"Không thể không thể duyệt",
+                                    image:"assets/img/login.png",
+                                    sticky:false,
+                                    time:""
+                                });
+                            } else {
+                                $("#" + _id).text(datas);
+                            }
+                        },
+                        cache: false, contentType: false, processData: false
+                    }).fail(function() {
+                        $.gritter.add({
+                            title:"Không thể duyệt",
+                            text:"Không thể duyệt",
+                            image:"assets/img/login.png",
+                            sticky:false,
+                            time:""
+                        });
+                    });
+                });
             });
         });
         <?php if(isset($msg) && $msg): ?>
@@ -164,8 +193,9 @@ $nguoichoi_list = $nguoichoi->get_all_list();
             sticky:false,
             time:""
         });
-        <?php endif; ?>  
-        App.init();TableManageDefault.init();Gallery.init();
+        <?php endif; ?> 
+        $("#data-table").DataTable({responsive:!0, "pageLength": 100});
+        App.init();Gallery.init();
 
     });
 </script>

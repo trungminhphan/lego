@@ -320,6 +320,7 @@ footer .container {
 
     .blog-single-wrap .blog-single-details img{
         width: 100% !important;
+        height:  100% !important;
     }
 
 }

@@ -26,6 +26,7 @@ $danhmucsanpham_list = $danhmucsanpham->get_all_list();
                         <tr>
                             <th>STT</th>
                             <th>Loại Sản phẩm</th>
+                            <th class="text-center">Sắp xếp</th>
                             <th class="text-center"><i class="fa fa-trash"></i></th>
                             <th class="text-center"><i class="fa fa-pencil"></i></th>
                         </tr>
@@ -35,9 +36,11 @@ $danhmucsanpham_list = $danhmucsanpham->get_all_list();
                     if($danhmucsanpham_list){
                         $i = 1;
                         foreach ($danhmucsanpham_list as $dm) {
+                            $orders = isset($dm['orders']) ? $dm['orders'] : 0;
                             echo '<tr>
                                 <td>'.$i.'</td>
                                 <td>'.$dm['ten'].'</td>
+                                <td class="text-center">'.$orders.'</td>
                                 <td class="text-center"><a href="get.danhmucsanpham.html?id='.$dm['_id'].'&act=del" onclick="return confirm(\'Chắc chắn muốn xoá?\');"><i class="fa fa-trash"></i></a></td>
                                 <td class="text-center"><a href="get.danhmucsanpham.html?id='.$dm['_id'].'&act=edit#modal-dmsanpham" data-toggle="modal" class="suadmsanpham"><i class="fa fa-pencil"></i></a></td>
                             </tr>';$i++;
@@ -66,6 +69,12 @@ $danhmucsanpham_list = $danhmucsanpham->get_all_list();
                         <input type="hidden" name="act" id="act" />
                         <input type="hidden" name="url" id="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
                         <input type="text" name="ten" id="ten" value="" class="form-control" data-parsley-required="true"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Sắp xếp</label>
+                    <div class="col-md-3">
+                        <input type="number" name="orders" id="orders" value="0" class="form-control"/>
                     </div>
                 </div>
             </div>
@@ -98,7 +107,7 @@ $danhmucsanpham_list = $danhmucsanpham->get_all_list();
             var _link = $(this).attr("href");
             $.getJSON(_link, function(data){
                 $("#id").val(data.id); $("#act").val(data.act);
-                $("#ten").val(data.ten);
+                $("#ten").val(data.ten);$("#orders").val(data.orders);
             });
         });
 

@@ -27,6 +27,7 @@ $list = $sanpham->get_all_list();
                 		<th width="50%">Tên sản phẩm</th>
                 		<th class="text-center">Ngày cập nhật</th>
                 		<th class="text-center">Hiển thị</th>
+                        <th class="text-center">Sắp xếp</th>
                 		<th class="text-center"><i class="fa fa-trash"></i></th>
                 		<th class="text-center"><i class="fa fa-pencil"></i></th>
                 	</tr>
@@ -37,11 +38,13 @@ $list = $sanpham->get_all_list();
                     $i = 1;
                 	foreach ($list as $ds) {
                         $hienthi = $ds['hienthi'] == 1 ? '<i class="fa fa-eye text-primary"></i>' : '<i class="fa fa-eye-slash text-danger"></i>';
+                        $orders = isset($ds['orders']) ? $ds['orders'] : 0;
                 		echo '<tr>';
                 		echo '<td>'.$i.'</td>';
                 		echo '<td>'.$ds['ten'].'</td>';
                 		echo '<td class="text-center">'.date("d/m/Y", $ds['date_post']->sec).'</td>';
                 		echo '<td class="text-center">'.$hienthi.'</td>';
+                        echo '<td class="text-center">'.$orders.'</td>';
                 		echo '<td class="text-center"><a href="themsanpham.html?id='.$ds['_id'].'&act=del" onclick="return confirm(\'Chắc chắn muốn xóa?\')"><i class="fa fa-trash"></i></a></td>';
                         echo '<td class="text-center"><a href="themsanpham.html?id='.$ds['_id'].'&act=edit"><i class="fa fa-pencil"></i></a></td>';
                 		echo '</tr>';$i++;
@@ -61,7 +64,6 @@ $list = $sanpham->get_all_list();
 <script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
 <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
 <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-<script src="assets/js/table-manage-default.demo.min.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
@@ -75,6 +77,7 @@ $list = $sanpham->get_all_list();
             time:""
         });
         <?php endif; ?>
-        App.init();TableManageDefault.init();
+        $("#data-table").DataTable({responsive:!0, "pageLength": 100});
+        App.init();
     });
 </script>

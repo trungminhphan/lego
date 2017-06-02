@@ -37,13 +37,14 @@ if($act == 'check'){
     $nguoichoi->id = $id;
     $noidung = isset($_POST['noidung']) ? $_POST['noidung'] : '';
     $id_tinhtrang = isset($_POST['id_tinhtrang']) ? $_POST['id_tinhtrang'] : 0;
-    $arr_tinhtrang = array('t' => intval($id_tinhtrang), 'noidung' => $noidung, 'date_post' => new MongoDate(), 'id_user' => new MongoId($id_user));
+    $arr_tt = array('t' => intval($id_tinhtrang), 'noidung' => $noidung, 'date_post' => new MongoDate(), 'id_user' => new MongoId($id_user));
     $nguoichoi->hinhanh = $hinhanh;
     $nguoichoi->capdo = $capdo;
-    $nguoichoi->tinhtrang = $arr_tinhtrang;
+    $nguoichoi->tinhtrang = $arr_tt;
     $nguoichoi->diem = $diem;
 
-    if($nguoichoi->check()) transfers_to('nguoichoi_2.html?msg=Cập nhật tình trạng thành công');
+    if($nguoichoi->check()) echo $arr_tinhtrang[$id_tinhtrang];
+    //transfers_to('nguoichoi_2.html?msg=Cập nhật tình trạng thành công');
 } else {
 	if($hinhanh_file) $hinhanh = $gridfs->insert_files();      
 	$nguoichoi->id_user = $id_user;

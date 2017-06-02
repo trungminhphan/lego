@@ -11,6 +11,7 @@ class SanPham {
 	public $gia = '';
 	public $link = '';
 	public $hienthi = 0;
+	public $orders = 0;
 	public $id_loaisanpham = array();
 	public $date_post = '';
 
@@ -20,15 +21,15 @@ class SanPham {
 	}
 
 	public function get_all_list(){
-		return $this->_collection->find()->sort(array('date_post'=>-1));
+		return $this->_collection->find()->sort(array('orders' => 1,'date_post'=>-1));
 	}
 
 	public function get_list_condition($condition){
-		return $this->_collection->find($condition)->sort(array('date_post'=>-1));
+		return $this->_collection->find($condition)->sort(array('orders' => 1, 'date_post'=>-1));
 	}
 
 	public function get_sanphammoi(){
-		return $this->_collection->find()->sort(array('date_post'=>-1))->limit(3);	
+		return $this->_collection->find()->sort(array('orders' => 1, 'date_post'=>-1))->limit(3);	
 	}
 
 	public function get_one(){
@@ -44,6 +45,7 @@ class SanPham {
 			'gia' => $this->gia,
 			'link' => $this->link,
 			'hienthi' => intval($this->hienthi),
+			'orders' => intval($this->orders),
 			'id_loaisanpham' => $this->id_loaisanpham,
 			'date_post' => new MongoDate()
 		);
@@ -58,6 +60,7 @@ class SanPham {
 			'gia' => $this->gia,
 			'link' => $this->link,
 			'hienthi' => intval($this->hienthi),
+			'orders' => intval($this->orders),
 			'id_loaisanpham' => $this->id_loaisanpham,
 			'date_post' => new MongoDate()
 		));

@@ -6,8 +6,9 @@ $act = isset($_POST['act']) ? $_POST['act'] : '';
 $url = isset($_POST['url']) ? $_POST['url'] : '';
 
 $ten = isset($_POST['ten']) ? $_POST['ten'] : '';
-
+$orders = isset($_POST['orders']) ? $_POST['orders'] : 0;
 $danhmucvideo->ten = $ten;
+$danhmucvideo->orders = $orders;
 
 if($act == 'edit'){
 	$danhmucvideo->id = $id;

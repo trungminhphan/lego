@@ -46,7 +46,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
             if($arr_user){
                 $i=1;
                 foreach($arr_user as $k => $a){
-                    if($k < 20 && $a['diem'] > 0){
+                    if($a['diem'] > 0){
                         $users->id = $a['id_user'];$u = $users->get_one();
                         echo '<tr>';
                         echo '<td>'.$i.'</td>';
@@ -70,7 +70,6 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
 <script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
 <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
 <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-<script src="assets/js/table-manage-default.demo.min.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
@@ -84,6 +83,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
             time:""
         });
         <?php endif; ?>
-        App.init();TableManageDefault.init();
+        $("#data-table").DataTable({responsive:!0, "pageLength": 100});
+        App.init();
     });
 </script>

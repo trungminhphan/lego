@@ -8,6 +8,7 @@ class Video {
 	public $tieude = '';
 	public $mota = '';
 	public $hienthi = 0;
+	public $orders = 0;
 	public $id_danhmucvideo = '';
 	public $hinhanh = '';
 	public $dinhkem = '';
@@ -20,11 +21,11 @@ class Video {
 	}
 
 	public function get_all_list(){
-		return $this->_collection->find()->sort(array('date_post'=> -1));
+		return $this->_collection->find()->sort(array('orders' => 1,'date_post'=>-1));
 	}
 
 	public function get_list_condition($condition){
-		return $this->_collection->find($condition)->sort(array('date_post'=> -1));
+		return $this->_collection->find($condition)->sort(array('orders' => 1,'date_post'=>-1));
 	}
 
 	public function get_one(){
@@ -40,6 +41,7 @@ class Video {
 			'link' => $this->link,
 			'hinhanh' => $this->hinhanh,
 			'hienthi' => intval($this->hienthi),
+			'orders' => intval($this->orders),
 			'id_danhmucvideo' => $this->id_danhmucvideo,
 			'date_post' => new MongoDate()
 		);
@@ -54,6 +56,7 @@ class Video {
 			'link' => $this->link,
 			'hinhanh' => $this->hinhanh,
 			'hienthi' => intval($this->hienthi),
+			'orders' => intval($this->orders),
 			'id_danhmucvideo' => $this->id_danhmucvideo,
 			'date_post' => new MongoDate()
 		));

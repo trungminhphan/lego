@@ -24,6 +24,7 @@ if($id && $act == 'edit'){
     $id_loaisanpham = $t['id_loaisanpham'];
     $ten = $t['ten'];
     $mota = $t['mota'];
+    $orders = isset($t['orders']) ? $t['orders'] : 0;
     $hinhanh = $t['hinhanh']; $hienthi = $t['hienthi'];
     $gia = $t['gia']; $link = $t['link'];
 }
@@ -35,6 +36,7 @@ if(isset($_POST['submit'])){
     $ten = isset($_POST['ten']) ? $_POST['ten'] : '';
     $mota = isset($_POST['mota']) ? $_POST['mota'] : '';
     $hienthi = isset($_POST['hienthi']) ? $_POST['hienthi'] : '';
+    $orders = isset($_POST['orders']) ? $_POST['orders'] : '';
     $gia = isset($_POST['gia']) ? $_POST['gia'] : '';
     $link = isset($_POST['link']) ? $_POST['link'] : '';
     $arr_hinhanh = array();
@@ -53,6 +55,7 @@ if(isset($_POST['submit'])){
     $sanpham->gia = intval($gia);
     $sanpham->link = $link;
     $sanpham->hienthi = $hienthi;
+    $sanpham->orders = $orders;
     if($act == 'edit'){
         $sanpham->id = $id;
         if($sanpham->edit()) transfers_to('sanpham.html?msg=Chỉnh sửa thành công');
@@ -126,6 +129,10 @@ if(isset($_POST['submit'])){
                     <label class="col-md-3 control-label">Hiển thị</label>
                     <div class="col-md-3" id="hienthi_html">
                         <input type="checkbox" name="hienthi" id="hienthi" value="1" data-render="switchery" data-theme="default" <?php echo ($id && $hienthi == 0) ? '' : 'checked';?> /> 
+                    </div>
+                    <label class="col-md-3 control-label">Sắp xếp</label>
+                    <div class="col-md-3" id="hienthi_html">
+                        <input type="number" name="orders" id="orders" value="<?php echo isset($orders) ? $orders : 0; ?>" class="form-control"/> 
                     </div>
                 </div>
                 <div class="form-group">

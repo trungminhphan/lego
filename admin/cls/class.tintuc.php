@@ -10,6 +10,7 @@ class TinTuc {
 	public $noidung = '';
 	public $hinhanh = '';
 	public $hienthi = 0;
+	public $orders = 0;
 	public $id_danhmuctintuc = '';
 	public $date_post = '';
 
@@ -19,20 +20,20 @@ class TinTuc {
 	}
 
 	public function get_all_list(){
-		return $this->_collection->find()->sort(array('date_post'=>-1));
+		return $this->_collection->find()->sort(array('orders' => 1, 'date_post'=>-1));
 	}
 
 	public function get_list_condition($condition){
-		return $this->_collection->find($condition)->sort(array('date_post'=>-1));
+		return $this->_collection->find($condition)->sort(array('orders' => 1, 'date_post'=>-1));
 	}
 
 	public function get_list_to_parent(){
 		$query = array('id_danhmuctintuc' => $this->id_danhmuctintuc);
-		return $this->_collection->find($query)->limit(20)->sort(array('date_post'=> -1));	
+		return $this->_collection->find($query)->limit(20)->sort(array('orders' => 1, 'date_post'=>-1));	
 	}
 
 	public function get_tintucmoi(){
-		return $this->_collection->find()->sort(array('date_post'=>1))->limit(3);
+		return $this->_collection->find()->sort(array('orders' => 1, 'date_post'=>-1))->limit(3);
 	}
 
 	public function get_one(){
@@ -52,6 +53,7 @@ class TinTuc {
 			'noidung' => $this->noidung,
 			'hinhanh' => $this->hinhanh,
 			'hienthi' => intval($this->hienthi),
+			'orders' => intval($this->orders),
 			'id_danhmuctintuc' => $this->id_danhmuctintuc,
 			'date_post' => new MongoDate()
 		);
@@ -65,6 +67,7 @@ class TinTuc {
 			'noidung' => $this->noidung,
 			'hinhanh' => $this->hinhanh,
 			'hienthi' => intval($this->hienthi),
+			'orders' => intval($this->orders),
 			'id_danhmuctintuc' => $this->id_danhmuctintuc,
 			'date_post' => new MongoDate()
 		));

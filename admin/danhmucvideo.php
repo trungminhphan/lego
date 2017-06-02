@@ -26,6 +26,7 @@ $danhmucvideo_list = $danhmucvideo->get_all_list();
                         <tr>
                             <th>STT</th>
                             <th>Loại video</th>
+                            <th class="text-center">Sắp xếp</th>
                             <th class="text-center"><i class="fa fa-trash"></i></th>
                             <th class="text-center"><i class="fa fa-pencil"></i></th>
                         </tr>
@@ -35,9 +36,11 @@ $danhmucvideo_list = $danhmucvideo->get_all_list();
                     if($danhmucvideo_list){
                         $i = 1;
                         foreach ($danhmucvideo_list as $dm) {
+                            $orders = isset($dm['orders']) ? $dm['orders'] : 0;
                             echo '<tr>
                                 <td>'.$i.'</td>
                                 <td>'.$dm['ten'].'</td>
+                                <td class="text-center">'.$orders.'</td>
                                 <td class="text-center"><a href="get.danhmucvideo.html?id='.$dm['_id'].'&act=del" onclick="return confirm(\'Chắc chắn muốn xoá?\');"><i class="fa fa-trash"></i></a></td>
                                 <td class="text-center"><a href="get.danhmucvideo.html?id='.$dm['_id'].'&act=edit#modal-dmvideo" data-toggle="modal" class="suadmvideo"><i class="fa fa-pencil"></i></a></td>
                             </tr>';$i++;
@@ -68,6 +71,12 @@ $danhmucvideo_list = $danhmucvideo->get_all_list();
                         <input type="text" name="ten" id="ten" value="" class="form-control" data-parsley-required="true"/>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Sắp xếp</label>
+                    <div class="col-md-3">
+                        <input type="number" name="orders" id="orders" value="0" class="form-control"/>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <a href="#" class="btn btn-sm btn-white" data-dismiss="modal">Đóng</a>
@@ -93,12 +102,12 @@ $danhmucvideo_list = $danhmucvideo->get_all_list();
         $("#themdmvideo").click(function(){
             $("#id").val();$("#act").val();
         });
-        
         $(".suadmvideo").click(function(){
             var _link = $(this).attr("href");
             $.getJSON(_link, function(data){
                 $("#id").val(data.id); $("#act").val(data.act);
                 $("#ten").val(data.ten);
+                $("#orders").val(data.orders);
             });
         });
 

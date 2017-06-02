@@ -80,7 +80,6 @@ $id_user = $users->get_userid();
 <script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
 <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
 <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-<script src="assets/js/table-manage-default.demo.min.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
@@ -91,6 +90,7 @@ $id_user = $users->get_userid();
                 $("#noidungdonhang").html(data);
             })
         });
-        App.init();TableManageDefault.init();
+        $("#data-table").DataTable({responsive:!0, "pageLength": 100});
+        App.init();
     });
 </script>
