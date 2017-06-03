@@ -111,8 +111,8 @@ if($users->isLoggedIn() && !$users->is_admin() && !$users->is_manager()){
 	                    <span>DANH MỤC</span>
 	                </a>
 	                 <ul class="sub-menu">
-	                 	<li class="divider"></li>
-                        <li><a href="danhmucthanhpho.html">Thành phố</a></li>
+	                 	<!--<li class="divider"></li>
+                        <li><a href="danhmucthanhpho.html">Thành phố</a></li>-->
                         <li class="divider"></li>
                         <li><a href="danhmuctintuc.html">Danh mục tin tức</a></li>
                         <li class="divider"></li>

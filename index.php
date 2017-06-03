@@ -1,7 +1,7 @@
 <?php require_once('header.php');
-$nguoichoi = new NguoiChoi();$banner = new Banner();
-$list = $nguoichoi->get_distinct_user();
-$arr_user = array();
+$nguoichoi = new NguoiChoi();$banner = new Banner();$hiepsituan = new HiepSiTuan();
+$list = $nguoichoi->get_distinct_user();$arr_user = array();
+$hst = $hiepsituan->get_newest();$list_tuan = $hiepsituan->get_all_list();
 if($list){
     foreach($list as $key => $value){
         $nguoichoi->id_user = $value;
@@ -95,7 +95,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                     <div class="grid-row">
                         <div class="grid-column">
                             <div class="grid-content">
-                                <ul lego-slider data-format="sixteen-nine" data-expand-on-mobile="False" data-lego-out="" lego-element-size data-uitest="slider-slider" data-slider-config='{ "autoAdvance": { "active": false, "delay": 0, "interim": 0 } }'>
+                                <ul lego-slider data-format="sixteen-nine" data-expand-on-mobile="" data-lego-out="" lego-element-size data-uitest="slider-slider" data-slider-config='{"autoAdvance": { "active": "", "delay": "", "interim": "" } }'>
                                 <?php
                                 $t = $banner->get_one();
                                 if($t && isset($t['banner']) && $t['banner']){
@@ -160,7 +160,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                     <div class="grid-row nexo-frontpage-ranking">
                         <div class="grid-column">
                             <div class="grid-content home-ranking-content">
-                                <h3>BẢNG XẾP HẠNG HIỆP SĨ</h3>
+                                <h3>TOP 100 XẾP HẠNG HIỆP SĨ</h3>
                                 <div class="content">
                                 <ul>
                                 <?php
@@ -176,6 +176,50 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                 </ul>
                                 </div>
                                 <a href="ranking.html"><h4>Xem danh sách đầy đủ</h4></a>
+                                <div style="clear:both"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-row nexo-frontpage-ranking">
+                        <div class="grid-column">
+                            <div class="grid-content home-ranking-content" style="margin:auto;">
+                                <h3>BẢNG VINH DANH HIỆP SĨ</h3>
+                                <?php if($hst): ?>
+                                <?php
+                                    foreach ($hst as $hs) {
+                                        echo '<h3>TUẦN '.$hs['tuan'] .'</h3>';
+                                    }
+                                ?>
+                                <ul>
+                                <?php
+                                    foreach($hst as $hs){
+                                        if($hs['hiepsi']){
+                                            foreach ($hs['hiepsi'] as $key => $value) {
+                                                $users->id = $value['id_user']; $us = $users->get_one();
+                                                echo '<li>'.($key+1).'. <a href="profiles.html?id_user='.$value['id_user'].'" style="float:none;">'.$us['hoten'].'</a> <span>'.format_number($value['diem']).' điểm</span></li>';
+                                            }
+                                        }
+                                    }                                
+                                endif;
+                                ?>
+                                </ul>
+                                <div style="clear:both"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-row nexo-frontpage-ranking">
+                        <div class="grid-column">
+                            <div class="grid-content ranking-content" style="margin:auto; border: 3px solid #ffff00; border-radius: 20px;background-color:#262626;">
+                                <h3 style="color:#ffff00;">XEM CÁC TUẦN TRƯỚC</h3>
+                                <ul style="padding:0px 20px 20px 20px;">
+                                <?php
+                                if($list_tuan){
+                                    foreach($list_tuan as $tuan){
+                                        echo '<li><a href="ranking.html?id_tuan='.$tuan['_id'].'">Tuần '.$tuan['tuan'].'</a></li>';
+                                    }
+                                }
+                                ?>
+                                </ul>
                                 <div style="clear:both"></div>
                             </div>
                         </div>
@@ -201,5 +245,8 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
             body.appendChild(el);
             var MediaPlayerAPILoaded = true;
         }
+        setInterval(function(){
+            $(".next").click();
+        }, 3000);
     }());
 </script>

@@ -194,7 +194,7 @@ $nguoichoi_list = $nguoichoi->get_all_list();
             time:""
         });
         <?php endif; ?>  
-        $("#data-table").DataTable({responsive:!0, "pageLength": 100});
+        $("#data-table").DataTable({responsive:!0, "pageLength": 100, "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>'});
         App.init();Gallery.init();
 
     });

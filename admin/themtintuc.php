@@ -42,12 +42,13 @@ if(isset($_POST['submit'])){
     $hinhanh_aliasname = isset($_POST['hinhanh_aliasname']) ? $_POST['hinhanh_aliasname'] : '';
     $hinhanh_filename = isset($_POST['hinhanh_filename']) ? $_POST['hinhanh_filename'] : '';
     $hinhanh_mota = isset($_POST['hinhanh_mota']) ? $_POST['hinhanh_mota'] : '';
+    $hinhanh_orders = isset($_POST['hinhanh_orders']) ? $_POST['hinhanh_orders'] : '';
     if($hinhanh_aliasname){
         foreach ($hinhanh_aliasname as $key => $value) {
-            array_push($arr_hinhanh, array('filename' => $hinhanh_filename[$key], 'aliasname' => $value, 'mota' => $hinhanh_mota[$key]));
+            array_push($arr_hinhanh, array('filename' => $hinhanh_filename[$key], 'aliasname' => $value, 'mota' => $hinhanh_mota[$key], 'orders' => $hinhanh_orders[$key]));
         }
     }
-
+    $arr_hinhanh = sort_array_1($arr_hinhanh, 'orders', SORT_ASC);
     $tintuc->id_danhmuctintuc = $id_danhmuctintuc;
     $tintuc->tieude = $tieude;
     $tintuc->mota = $mota;
@@ -144,9 +145,13 @@ if(isset($_POST['submit'])){
                 <?php
                 if(isset($hinhanh) && $hinhanh){
                     foreach($hinhanh as $h){
+                        $orders = isset($h['orders']) ? $h['orders'] : 0;
                         echo '<div class="items form-group">';
-                        echo '<div class="col-md-6"><input type="text" name="hinhanh_mota[]" value="'.$h['mota'].'" class="form-control" placeholder="Mô tả hình ảnh"></div>';
-                        echo '<div class="col-md-6">';
+                        echo '<div class="col-md-2">
+                            <input type="number" class="form-control" name="hinhanh_orders[]" value="'.$orders.'" />
+                          </div>';
+                        echo '<div class="col-md-5"><input type="text" name="hinhanh_mota[]" value="'.$h['mota'].'" class="form-control" placeholder="Mô tả hình ảnh"></div>';
+                        echo '<div class="col-md-5">';
                         echo '<div class="input-group">
                                 <input type="hidden" class="form-control" name="hinhanh_aliasname[]" value="'.$h['aliasname'].'" readonly/>
                                 <input type="text" class="form-control" name="hinhanh_filename[]" value="'.$h['filename'].'" readonly/>

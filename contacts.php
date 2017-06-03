@@ -65,7 +65,7 @@ if(isset($_POST['submit'])){
 <link rel="stylesheet" href="css/ranking/footer.css" media="all" type="text/css" />
 <script type="text/javascript" src="js/html5.messages.js"></script>
 <section class="bg-none pad-tb-30">
-    <div class="container">
+    <div class="container" style="font-family:Tahoma !important;">
         <div class="row">
         	<div class="col-md-6 col-sm-6">
         		<div class="title-container text-left sm">

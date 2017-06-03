@@ -146,6 +146,9 @@ footer .container {
 .nexo-frontpage-ranking .home-ranking-content a, .nexo-frontpage-ranking .ranking-cahan a{
     float: right; margin: 0px 40px 0px 0px; color: #ffff00;
 }
+.nexo-frontpage-ranking .home-ranking-content a:hover{
+    color:#fff;
+}
 .nexo-frontpage-ranking .home-ranking-content h3,
 .nexo-frontpage-ranking .ranking-canhan h3 {
     text-align:  center; padding: 10px 0px 0px 0px; margin: 0px;color: #ffff00;
@@ -289,6 +292,13 @@ footer .container {
 }
 
 @media screen and (max-width: 414px) {
+    .nexo-frontpage-ranking{
+        margin-bottom: 5px;
+    }
+    .nexo-frontpage-ranking .home-ranking-content,
+    .nexo-frontpage-ranking .ranking-content{
+        border-radius: 15px;
+    }
     .nexo-frontpage-ranking .ranking-content h3,
     .nexo-frontpage-ranking .home-ranking-content h3{
         font-size: 20px;
@@ -343,6 +353,7 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-.call-to-action:hover{
-    opacity: 0.6;
+.Sidebar-navigation .call-to-action:hover  {
+    width: 120%;
+    height: 120%;
 }

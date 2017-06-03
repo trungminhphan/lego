@@ -83,7 +83,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
             time:""
         });
         <?php endif; ?>
-        $("#data-table").DataTable({responsive:!0, "pageLength": 100});
+        $("#data-table").DataTable({responsive:!0, "pageLength": 100, "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>'});
         App.init();
     });
 </script>

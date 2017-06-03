@@ -21,8 +21,13 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 					$alias_name =  $alias . '_'. date("Ymdhms") . '.' . $extension;
 		            if(move_uploaded_file($_FILES["hinhanh_files"]["tmp_name"][$f], $target_images_home.$alias_name))
 		            echo '<div class="items form-group">';
-		        	echo '<div class="col-md-6"><input type="text" name="hinhanh_mota[]" class="form-control" placeholder="Mô tả hình ảnh"></div>';
-		        	echo '<div class="col-md-6">';
+		        	echo '<div class="col-md-2">
+		        			<input type="number" class="form-control" name="hinhanh_orders[]" value="0" />
+		        		  </div>';
+		        	echo '<div class="col-md-5">
+		        			<input type="text" name="hinhanh_mota[]" class="form-control" placeholder="Mô tả hình ảnh">
+		        		  </div>';
+		        	echo '<div class="col-md-5">';
 		            echo '<div class="input-group">
                             <input type="hidden" class="form-control" name="hinhanh_aliasname[]" value="'.$alias_name.'" readonly/>
                         	<input type="text" class="form-control" name="hinhanh_filename[]" value="'.$name.'" readonly/>

@@ -58,7 +58,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                     <div class="grid-row nexo-frontpage-ranking">
                         <div class="grid-column">
                             <div class="grid-content home-ranking-content" style="margin:auto;">
-                                <h3 style="padding-top: 40px;">BẢNG VINH DANH HIỆP SĨ</h3>
+                                <h3>BẢNG VINH DANH HIỆP SĨ</h3>
                                 <?php if($hst): ?>
                                 <?php
                                     foreach ($hst as $hs) {
@@ -84,9 +84,9 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                     </div>
                     <div class="grid-row nexo-frontpage-ranking">
                         <div class="grid-column">
-                            <div class="grid-content ranking-content" style="margin:auto; border: 3px solid #ffff00;padding:20px; border-radius: 20px;background-color:#262626;">
+                            <div class="grid-content ranking-content" style="margin:auto; border: 3px solid #ffff00; border-radius: 20px;background-color:#262626;">
                                 <h3 style="color:#ffff00;">XEM BẢNG VINH DANH CÁC TUẦN KHÁC</h3>
-                                <ul>
+                                <ul style="padding:0px 20px 20px 20px;">
                                 <?php
                                 if($list_tuan){
                                     foreach($list_tuan as $tuan){
