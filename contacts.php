@@ -70,26 +70,28 @@ if(isset($_POST['submit'])){
         	<div class="col-md-6 col-sm-6">
         		<div class="title-container text-left sm">
                     <div class="title-wrap">
-                        <h4 class="title" style="font-family:Tahoma;font-style:normal;">THÔNG TIN LIÊN HỆ</h4>
+                        <h4 class="title" style="font-family:Tahoma !important;font-style:normal;">THÔNG TIN LIÊN HỆ</h4>
                         <span class="separator line-separator"></span>
                     </div>
                 </div>
                 <div class="row">
                		<div class="col-md-12">
-               			<h5 style="color:#fff;font-style: normal;font-family:Tahoma;"">Địa chỉ:</h5>
-               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma;font-style: normal;font-size: 20px;"> Số 33-35 Đường D4, Khu Đô Thị Mới Him Lam, P.Tân Hưng, Quận 7, Tp. Hồ Chí Minh</p>
+                    <p  style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;">Bộ phận Marketing thương hiệu LEGO Công Ty Cổ Phần Việt Tinh Anh</p>
+               			<h5 style="color:#fff;font-style: normal;font-family:Tahoma !important;"">Địa chỉ:</h5>
+               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;"> Số 33-35 Đường D4, Khu Đô Thị Mới Him Lam, P.Tân Hưng, Quận 7, Tp. Hồ Chí Minh</p>
                		</div>
                	</div>
                	<div class="row">
                		<div class="col-md-12">
-               			<h5 style="color:#fff;font-style: normal;font-family:Tahoma;"">Email:</h5>
-               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma;font-style: normal;font-size: 20px;">legomarketingteam@gmail.com</p>
+               			<h5 style="color:#fff;font-style: normal;font-family:Tahoma !important;"">Email:</h5>
+               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;">legomarketingteam@gmail.com</p>
                		</div>
                	</div>
                	<div class="row">
                		<div class="col-md-12">
-               			<h5 style="color:#fff;font-style: normal;font-family:Tahoma;">Điện thoại:</h5>
-               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma;font-style: normal;font-size: 20px;"> (84-8) 54 31 8717 – 18</p>
+               			<h5 style="color:#fff;font-style: normal;font-family:Tahoma !important;">Điện thoại:</h5>
+               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;"> (84-8) 54 31 8717/18, số nội bộ 440</p>
+                    <p style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;"> Giờ làm việc: 09:00 – 18:00</p>
                		</div>
                	</div>
         	</div>

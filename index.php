@@ -187,7 +187,8 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                 <?php if($hst): ?>
                                 <?php
                                     foreach ($hst as $hs) {
-                                        echo '<h3>TUẦN '.$hs['tuan'] .'</h3>';
+                                        echo '<h3 style="font-size: 18px;">TUẦN '.$hs['tuan'] .' (từ: '.date("m/d", $hs['tungay']->sec).' - '.date("m/d", $hs['denngay']->sec).')</h3>';
+                                        //echo '<h3>TUẦN '.$hs['tuan'] .'</h3>';
                                     }
                                 ?>
                                 <ul>
@@ -203,27 +204,12 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                 endif;
                                 ?>
                                 </ul>
+                                <a href="ranking.html#cactuankhac"><h4>Xem các tuần trước</h4></a>
                                 <div style="clear:both"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="grid-row nexo-frontpage-ranking">
-                        <div class="grid-column">
-                            <div class="grid-content ranking-content" style="margin:auto; border: 3px solid #ffff00; border-radius: 20px;background-color:#262626;">
-                                <h3 style="color:#ffff00;">XEM CÁC TUẦN TRƯỚC</h3>
-                                <ul style="padding:0px 20px 20px 20px;">
-                                <?php
-                                if($list_tuan){
-                                    foreach($list_tuan as $tuan){
-                                        echo '<li><a href="ranking.html?id_tuan='.$tuan['_id'].'">Tuần '.$tuan['tuan'].'</a></li>';
-                                    }
-                                }
-                                ?>
-                                </ul>
-                                <div style="clear:both"></div>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <div class="nexo-screen-decoration-bottom"></div>
                 </div>
                 <div class="secondary-site-content">
