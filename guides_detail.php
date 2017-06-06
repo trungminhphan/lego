@@ -31,9 +31,12 @@ $list = $huongdan->get_all_list();
 						
 					</div><!-- Blog Detail Wrapper -->
 				</div><!-- Blog Wrapper -->
-				<?php if($tt['hinhanh']): ?>
+				<?php if($tt['hinhanh'] && count($tt['hinhanh']) > 1): ?>
 				<ul lego-slider lego-element-size data-format="sixteen-nine">
-				<?php foreach($tt['hinhanh'] as $h): ?>
+				<?php
+				foreach($tt['hinhanh'] as $k => $h):
+					if($k > 0): 
+				?>
 					<li>
 		                <div class="list-item">
 		                    <div class="primary-content">
@@ -41,7 +44,7 @@ $list = $huongdan->get_all_list();
 		                    </div>
 		                </div>
 		            </li>
-		        <?php endforeach; ?>
+		        <?php endif; endforeach; ?>
 				</ul>	
 				<?php endif; ?>				
 			</div><!-- Column -->

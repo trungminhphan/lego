@@ -19,6 +19,7 @@ $hs = $hiepsituan->get_one();
 			<th>STT</th>
 			<th>Tên tài khoản</th>
 			<th>Họ tên</th>
+			<th>Điện thoại</th>
 			<th>Điểm</th>
 		</tr>
 	</thead>
@@ -31,6 +32,7 @@ $hs = $hiepsituan->get_one();
 		echo '<td>'.$i.'</td>';
 		echo '<td>'.$u['username'].'</td>';
 		echo '<td>'.$u['hoten'].'</td>';
+		echo '<td>'.$u['sodienthoai'].'</td>';
 		echo '<td>'.format_number($value['diem']).'</td>';
 		echo '</tr>'; $i++;
 	}

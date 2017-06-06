@@ -94,7 +94,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                     <div class="nexo-screen-decoration-top"></div>
                     <div class="grid-row">
                         <div class="grid-column">
-                            <div class="grid-content">
+                            <div class="grid-content" id="banner">
                                 <ul lego-slider data-format="sixteen-nine" data-expand-on-mobile="" data-lego-out="" lego-element-size data-uitest="slider-slider" data-slider-config='{"autoAdvance": { "active": "", "delay": "", "interim": "" } }'>
                                 <?php
                                 $t = $banner->get_one();
@@ -187,7 +187,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                 <?php if($hst): ?>
                                 <?php
                                     foreach ($hst as $hs) {
-                                        echo '<h3 style="font-size: 18px;">TUẦN '.$hs['tuan'] .' (từ: '.date("m/d", $hs['tungay']->sec).' - '.date("m/d", $hs['denngay']->sec).')</h3>';
+                                        echo '<h3>TUẦN '.$hs['tuan'] .' ('.date("d/m/Y", $hs['tungay']->sec).' - '.date("d/m/Y", $hs['denngay']->sec).')</h3>';
                                         //echo '<h3>TUẦN '.$hs['tuan'] .'</h3>';
                                     }
                                 ?>
@@ -231,8 +231,18 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
             body.appendChild(el);
             var MediaPlayerAPILoaded = true;
         }
-        setInterval(function(){
-            $(".next").click();
-        }, 3000);
+        var interval;
+        interval =  setInterval(function(){ $(".next").click(); }, 3000);
+        $("#banner").on({
+            mouseenter: function(){
+                clearInterval(interval);  
+            },
+            mouseleave: function(){
+                interval =  setInterval(function(){ $(".next").click(); }, 3000);
+            }
+        });
+        
+
+        
     }());
 </script>

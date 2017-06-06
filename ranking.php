@@ -63,7 +63,7 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                             <div class="grid-column">
                                 <div class="grid-content home-ranking-content" style="margin:auto;">
                                     <h3>BẢNG VINH DANH HIỆP SĨ</h3>
-                                    <?php echo '<h3 style="font-size: 18px;">TUẦN '.$hst['tuan'] .' (từ: '.date("m/d", $hst['tungay']->sec).' - '.date("m/d", $hst['denngay']->sec).')</h3>'; ?>
+                                    <?php echo '<h3>TUẦN '.$hst['tuan'] .' ('.date("d/m/Y", $hst['tungay']->sec).' - '.date("d/m/Y", $hst['denngay']->sec).')</h3>'; ?>
                                     <ul>
                                     <?php
                                         if($hst['hiepsi']){

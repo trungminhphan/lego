@@ -76,9 +76,9 @@ if(isset($_POST['submit'])){
                 </div>
                 <div class="row">
                		<div class="col-md-12">
-                    <p  style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;">Bộ phận Marketing thương hiệu LEGO Công Ty Cổ Phần Việt Tinh Anh</p>
+                    <p  style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;">Bộ phận Marketing thương hiệu LEGO<br /> Công Ty Cổ Phần Việt Tinh Anh</p>
                			<h5 style="color:#fff;font-style: normal;font-family:Tahoma !important;"">Địa chỉ:</h5>
-               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;"> Số 33-35 Đường D4, Khu Đô Thị Mới Him Lam, P.Tân Hưng, Quận 7, Tp. Hồ Chí Minh</p>
+               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style:normal;font-size: 20px;"> Số 33-35 Đường D4, Khu Đô Thị Mới Him Lam, P.Tân Hưng, Quận 7, Tp. Hồ Chí Minh</p>
                		</div>
                	</div>
                	<div class="row">
@@ -90,8 +90,10 @@ if(isset($_POST['submit'])){
                	<div class="row">
                		<div class="col-md-12">
                			<h5 style="color:#fff;font-style: normal;font-family:Tahoma !important;">Điện thoại:</h5>
-               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;"> (84-8) 54 31 8717/18, số nội bộ 440</p>
-                    <p style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;"> Giờ làm việc: 09:00 – 18:00</p>
+               			<p style="color:#ffff00;font-weight:bold;font-family:Tahoma !important;font-style: normal;font-size: 20px;"> (84-8) 54 31 8717/18, số nội bộ 440 <br />
+                    Giờ làm việc: 09:00 – 18:00 <br/>
+                    Từ Thứ Hai đến Thứ Sáu hàng tuần.
+                    </p>                    
                		</div>
                	</div>
         	</div>
@@ -99,7 +101,7 @@ if(isset($_POST['submit'])){
         		<form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" id="contacts">
         		<div class="title-container text-left sm">
                     <div class="title-wrap">
-                        <h4 class="title" style="font-family:Tahoma;font-style:normal;">Viết nhận xét</h4>
+                        <h4 class="title" style="font-family:Tahoma !important;font-style:normal;">Viết nhận xét</h4>
                         <span class="separator line-separator"></span>
                     </div>
                 </div>
@@ -110,20 +112,20 @@ if(isset($_POST['submit'])){
                 <?php endif; ?>
                 <div class="row">
                 	<div class="col-md-12 input-text form-group">
-                		<input type="text" value="<?php echo isset($hoten) ? $hoten: ''; ?>" required name="hoten" id="hoten" class="form-control" placeholder="Họ tên" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" style="font-family: Tahoma; font-weight:bold;font-size:15px;"/>
+                		<input type="text" value="<?php echo isset($hoten) ? $hoten: ''; ?>" required name="hoten" id="hoten" class="form-control" placeholder="Họ tên" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" style="font-family: Tahoma !important; font-weight:bold;font-size:15px;"/>
                 	</div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <input type="text" value="<?php echo isset($dienthoai) ? $dienthoai: ''; ?>" required name="dienthoai" id="dienthoai" class="form-control" placeholder="Điện thoại" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" style="font-family: Tahoma; font-weight:bold;font-size:15px;"/>
+                    <input type="text" value="<?php echo isset($dienthoai) ? $dienthoai: ''; ?>" required name="dienthoai" id="dienthoai" class="form-control" placeholder="Điện thoại" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" style="font-family: Tahoma !important; font-weight:bold;font-size:15px;"/>
                   </div>
                 	<div class="col-md-6 form-group">
-                		<input type="email" value="<?php echo isset($email) ? $email: ''; ?>" required name="email" id="email" class="form-control" placeholder="Email" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" style="font-family: Tahoma; font-weight:bold;font-size:15px;"/>
+                		<input type="email" value="<?php echo isset($email) ? $email: ''; ?>" required name="email" id="email" class="form-control" placeholder="Email" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" style="font-family: Tahoma !important; font-weight:bold;font-size:15px;"/>
                 	</div>
                 </div>
                 <div class="row">
                 	<div class="col-md-12 textarea-message form-group">
-                		<textarea class="textarea-message form-control" name="noidung" id="noidung" rows="8" placeholder="Nội dung" style="font-family: Tahoma; font-weight:bold;font-size:15px;"><?php echo isset($noidung) ? $noidung : ''; ?></textarea>
+                		<textarea class="textarea-message form-control" name="noidung" id="noidung" rows="8" placeholder="Nội dung" style="font-family: Tahoma  !important; font-weight:bold;font-size:15px;"><?php echo isset($noidung) ? $noidung : ''; ?></textarea>
                 	</div>
                 </div>
                 <div class="row">

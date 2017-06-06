@@ -49,7 +49,7 @@ $k = isset($_GET['k']) ? $_GET['k'] : 0;
 	    <input type="number" name="sotien" id="sotien" class="form-control" placeholder="Số tiền" required min="1" oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);"/>
 	</div>
     <div class="form-group" style="color:#fff;">
-        <p><b><u>LƯU Ý:</u></b> Chụp hình NGƯỜI CHƠI cùng HOÁ ĐƠN MUA HÀNG LEGO Nexo Knights. Hình không rõ số tiền hoặc không được chụp cùng người chơi sẽ không hợp lệ.</p>
+        <p><b><u>LƯU Ý:</u></b> Chụp hình NGƯỜI CHƠI cùng HOÁ ĐƠN MUA HÀNG LEGO Nexo Knights. Hình phải rõ TÊN SẢN PHẨM, SỐ TIỀN, NGÀY MUA HÀNG, và được CHỤP CÙNG NGƯỜI CHƠI mới được tính hợp lệ.</p>
     </div>
     <div class="form-group">
         <div style="position:relative;">
