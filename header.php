@@ -14,6 +14,7 @@ $url = isset($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : 'index.html'
     ng-app="LEGO.Web.NexoKnights.Site">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="TveztJsdF_Ttac82qxATsft6YKiX2ecQZW6hRsMlhRg" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google" value="notranslate">
