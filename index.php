@@ -106,6 +106,11 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                                                 <img src="'.$target_banner.$b['aliasname'].'" alt="" />
                                                 <i class="icon icon-explore is-top-right "></i>
                                             </section>';
+                                        if(isset($b['mota']) && $b['mota']){
+                                            echo '<section class="secondary-content">
+                                                <h5 class="cta-headline">'.$b['mota'].'</h5>
+                                            </section>';
+                                        }
                                         echo '</a>';
                                         echo '</li>';
                                     }

@@ -11,10 +11,11 @@ if(isset($_POST['submit'])){
         $banner_aliasname = isset($_POST['banner_aliasname']) ? $_POST['banner_aliasname'] : '';
         $banner_filename = isset($_POST['banner_filename']) ? $_POST['banner_filename'] : '';
         $banner_link = isset($_POST['banner_link']) ? $_POST['banner_link'] : '';
+        $banner_mota = isset($_POST['banner_mota']) ? $_POST['banner_mota'] : '';
         $banner_orders = isset($_POST['banner_orders']) ? $_POST['banner_orders'] : '';
         if($banner_aliasname){
             foreach ($banner_aliasname as $key => $value) {
-                array_push($arr_banner, array('filename' => $banner_filename[$key], 'aliasname' => $value, 'link' => $banner_link[$key], 'orders' => $banner_orders[$key]));
+                array_push($arr_banner, array('filename' => $banner_filename[$key], 'aliasname' => $value,'mota' => $banner_mota[$key], 'link' => $banner_link[$key], 'orders' => $banner_orders[$key]));
             }
         }
         $arr_banner = sort_array_1($arr_banner, 'orders', SORT_ASC);
@@ -59,12 +60,14 @@ if(isset($_POST['submit'])){
                 if($t['banner']){
                     foreach($t['banner'] as $banner){
                         $orders = isset($banner['orders']) ? $banner['orders'] : 0;
+                        $mota = isset($banner['mota']) ? $banner['mota'] : '';
                         echo '<div class="items form-group">';
-                        echo '<div class="col-md-2">
+                        echo '<div class="col-md-1">
                             <input type="number" class="form-control" name="banner_orders[]" value="'.$orders.'" />
                           </div>';
-                        echo '<div class="col-md-5"><input type="text" name="banner_link[]" value="'.$banner['link'].'" class="form-control" placeholder="Liên kết"></div>';
-                        echo '<div class="col-md-5">';
+                          echo '<div class="col-md-4"><input type="text" name="banner_mota[]" class="form-control" placeholder="Mô tả" value="'.$mota.'"></div>';
+                        echo '<div class="col-md-4"><input type="text" name="banner_link[]" value="'.$banner['link'].'" class="form-control" placeholder="Liên kết"></div>';
+                        echo '<div class="col-md-3">';
                         echo '<div class="input-group">
                                 <input type="hidden" class="form-control" name="banner_aliasname[]" value="'.$banner['aliasname'].'" readonly/>
                                 <input type="text" class="form-control" name="banner_filename[]" value="'.$banner['filename'].'" readonly/>
