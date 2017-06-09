@@ -8,10 +8,10 @@ $msg = isset($_GET['msg']) ? $_GET['msg'] : '';
 $id_user = $users->get_userid();
 if(isset($_POST['submit'])){
     $loaidiem = isset($_POST['loaidiem']) ? $_POST['loaidiem'] : 0;
-    $hinhanh_file = strtolower($_FILES["hinhanh"]["name"]);
-    $hinhanh_size = $_FILES["hinhanh"]["size"];
-    $hinhanh_type = $_FILES["hinhanh"]["type"];
-    $hinhanh_tmp = $_FILES['hinhanh']['tmp_name'];
+    $hinhanh_file = isset($_FILES["hinhanh"]["name"]) ? strtolower($_FILES["hinhanh"]["name"]) : '';
+    $hinhanh_size = isset($_FILES["hinhanh"]["size"]) ? $_FILES["hinhanh"]["size"] : '';
+    $hinhanh_type = isset($_FILES["hinhanh"]["type"]) ? $_FILES["hinhanh"]["type"] : '';
+    $hinhanh_tmp = isset($_FILES['hinhanh']['tmp_name']) ? $_FILES['hinhanh']['tmp_name'] : '';
     $old_hinhanh = isset($_POST['old_hinhanh']) ? $_POST['old_hinhanh'] : '';
     $temp = explode(".", $hinhanh_file);
     if($hinhanh_file){
@@ -21,7 +21,6 @@ if(isset($_POST['submit'])){
             $gridfs->filetype = $hinhanh_type;
             $gridfs->tmpfilepath = $hinhanh_tmp;
             $gridfs->caption = $hinhanh_file;
-
         } else {
             $msg = 'Dung lượng hình ảnh quá lớn hoặc không đúng định dạng';
         }
@@ -46,7 +45,11 @@ if(isset($_POST['submit'])){
         $nguoichoi->hinhanh = $hinhanh;
         $nguoichoi->capdo = $capdo;
         $nguoichoi->diem = $diem;
-        if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        if(!$hinhanh){
+            $msg = 'Vui lòng chọn hình ảnh';
+        } else {
+            if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        }
     }
 
     if($loaidiem == 2){
@@ -67,7 +70,11 @@ if(isset($_POST['submit'])){
         $nguoichoi->hinhanh = $hinhanh;
         $nguoichoi->capdo = $capdo;
         $nguoichoi->diem = $diem;
-        if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        if(!$hinhanh){
+            $msg = 'Vui lòng chọn hình ảnh';
+        } else {
+            if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        }
     }
     if($loaidiem == 3){
         $nguoichoi = new NguoiChoi_3();
@@ -87,7 +94,11 @@ if(isset($_POST['submit'])){
         $nguoichoi->hinhanh = $hinhanh;
         $nguoichoi->sotien = $sotien;
         $nguoichoi->diem = $diem;
-        if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        if(!$hinhanh){
+            $msg = 'Vui lòng chọn hình ảnh';
+        } else {
+            if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        }
     }
 
     if($loaidiem == 4){
@@ -100,7 +111,11 @@ if(isset($_POST['submit'])){
         $nguoichoi->hinhanh = $hinhanh;
         $nguoichoi->maso = $maso;
         $nguoichoi->diem = $diem;
-        if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        if($nguoichoi->check_maso()){
+            $msg = 'Mã số này đã nhập rồi, vui lòng chọn mã số khác';
+        } else {
+            if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        }
     }
 
     if($loaidiem == 5){
@@ -114,7 +129,11 @@ if(isset($_POST['submit'])){
         $nguoichoi->hinhanh = $hinhanh;
         $nguoichoi->maso = $maso;
         $nguoichoi->diem = $diem;
-        if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        if($nguoichoi->check_maso()){
+            $msg = 'Mã số này đã nhập rồi, vui lòng chọn mã số khác';
+        } else {
+            if($nguoichoi->insert()) transfers_to('marking.html?msg=Thao tác hoàn tất. Điểm sức mạnh của bạn sẽ được cập nhật trong vòng 24 giờ');
+        }
     }
 }
 ?>

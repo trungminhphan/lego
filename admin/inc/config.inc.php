@@ -36,6 +36,8 @@
 		2 => 'Không hợp lệ'
 	);
 
+	$arr_donhang = array( 0 => 'Chưa xử lý', 1 => 'Đã xử lý');
+
 	$arr_body = array(
 	    'index.html' => '<body lang="en" dir="ltr" class="nexo-explore-design-2017 homepage wu-cru-enabled">',
 	    'ranking.html' => '<body lang="en" dir="ltr" class="nexo-explore-design-2017 homepage wu-cru-enabled">',

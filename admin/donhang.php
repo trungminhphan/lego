@@ -25,6 +25,7 @@ $id_user = $users->get_userid();
                 <th>Khách hàng</th>
                 <th>Tổng cộng</th>
                 <th>Ngày đặt</th>
+                <th class="text-center">Tình trạng</th>
                 <th class="text-center">Xem</th>
             </tr>
             </thead>
@@ -33,6 +34,8 @@ $id_user = $users->get_userid();
             if($donhang_list){
                 foreach($donhang_list as $dh){
                     $tongthanhtien = 0;
+                    $t = isset($dh['tinhtrang']) ? $dh['tinhtrang'] : 0;
+                    if($t==1) $tt = 0; else $tt=1;
                     if($dh['sanpham']){
                         foreach($dh['sanpham'] as $sp){
                             $tongthanhtien += $sp['thanhtien'];
@@ -42,9 +45,9 @@ $id_user = $users->get_userid();
                             <td>'.$dh['madonhang'].'</td>
                             <td>'.$dh['thongtingiaohang']['hoten'].'</td>
                             <td>'.format_number($tongthanhtien).' VND</td>
-                            <td>'.date("d/m/Y H:i", $dh['ngaydathang']->sec).'</td>';
-                    
-                    echo        '
+                            <td>'.date("d/m/Y H:i", $dh['ngaydathang']->sec).'</td>
+                            <td class="text-center"><a href="get.donhang.html?id='.$dh['_id'].'&act=tinhtrang&tinhtrang='.$tt.'" class="set_tinhtrang" onclick="return false;">'.$arr_donhang[$t].'</a></td>';
+                    echo '
                             <td class="text-center">
                             <a href="get.chitietdonhang.html?id='.$dh['_id'].'#modal-donhang" data-toggle="modal" class="chitietdonhang btn-white btn btn-xs btn-primary">Xem</a>
                             </td>
@@ -80,6 +83,7 @@ $id_user = $users->get_userid();
 <script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
 <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
 <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
@@ -90,6 +94,7 @@ $id_user = $users->get_userid();
                 $("#noidungdonhang").html(data);
             })
         });
+        set_tinhtrang();
         $("#data-table").DataTable({responsive:!0, "pageLength": 100,  "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>'});
         App.init();
     });

@@ -9,7 +9,7 @@ class DonHang{
 	public $madonhang = '';
 	public $sanpham = array(); //array(id_sanpham, id_seller, soluong, dongia, thanhtien, tinhtrang = //array(id_user, tinhtrang, ngaythang, noidung) chua giao hang, dang giao hang, huy don hang, da giao hang.);
 	public $ngaydathang = '';
-	public $tinhtrang = 0; //0 chưa giải quyết, 1 - giải quyết xong 
+	public $tinhtrang = 0; //0 chưa xử lý, 1 - Đã xử lý 
 	public $thongtingiaohang = array();// fullname, address, phone, email.
 
 	public function __construct(){
@@ -70,6 +70,12 @@ class DonHang{
 	public function capnhattinhtrang($id_sanpham){
 		$condition = array('_id' => new MongoId($this->id), 'sanpham.id_sanpham' => new MongoId($id_sanpham));
 		$query = array('$push' => array('sanpham.$.tinhtrang' => array('$each'=>array($this->tinhtrang), '$position' => 0)));
+		return $this->_collection->update($condition, $query);
+	}
+
+	public function set_tinhtrang(){
+		$query = array('$set' => array('tinhtrang' => intval($this->tinhtrang)));
+		$condition = array('_id' => new MongoId($this->id));
 		return $this->_collection->update($condition, $query);
 	}
 }

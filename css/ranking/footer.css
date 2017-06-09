@@ -357,3 +357,9 @@ input[type="number"] {
     width: 110%;
     height: 110%;
 }
+.nhapdiem {
+    width: 260px;
+}
+.nhapdiem:hover{
+    width:  110%;
+}

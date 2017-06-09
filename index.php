@@ -24,10 +24,12 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                 <div class="grid-row Sidebar-navigation" data-list-id="62b94d87-d7c9-4e78-bd18-d10951a9865e">
                     <div class="grid-column">
                         <div class="grid-content">
-                            <a href="marking.html" class="call-to-action list-item">
-                                <img src="images/nhapdiem-1.png" alt="" style="width:100%;"/>                               
-                            </a>
-                            <a href="marking.html" class="btn-shopping" style="font-size:33px;padding:20px;font-style:normal;width:100%;"><i class="glyphicon glyphicon-star"></i> NHẬP ĐIỂM</a>
+                            <div class="nhapdiem">
+                                <a href="marking.html" class="list-item">
+                                    <img src="images/nhapdiem-1.png" alt="" style="width:100%;"/>                               
+                                </a>
+                                <a href="marking.html" class="btn-shopping" style="font-size:33px;padding:20px;font-style:normal;width:100%;"><i class="glyphicon glyphicon-star"></i> NHẬP ĐIỂM</a>
+                            </div>
                             <ul class="list list-grid" lego-list lego-element-size data-size="2" data-format="square" data-uitest="list-simple" lego-element-size="">
                                 <li>
                                     <a href="ranking.html" class="call-to-action list-item" data-xlink-handler lego-shopxlink-handler>
@@ -246,8 +248,5 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
                 interval =  setInterval(function(){ $(".next").click(); }, 3000);
             }
         });
-        
-
-        
     }());
 </script>

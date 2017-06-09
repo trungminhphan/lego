@@ -216,4 +216,12 @@ class NguoiChoi{
 		if($result && isset($result['result'][0]['sumdiem'])) return $result['result'][0]['sumdiem'];
 		return 0;
 	}
+
+	public function check_maso(){
+		$query = array('maso' => $this->maso, 'id_user' => new MongoId($this->id_user), 'loaidiem' => intval($this->loaidiem));
+		$field = array('_id' => true);
+		$result = $this->_collection->findOne($query, $field);
+		if(isset($result['_id']) && $result['_id']) return true;
+		else return false;
+	}
 }

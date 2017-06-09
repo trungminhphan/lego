@@ -9,7 +9,7 @@
                 <div  style="font-family:Segoe UI, Roboto;">
                 <span itemprop="name"><b>&copy; Công Ty Cổ Phần Việt Tinh Anh</b></span><br />
                 Địa chỉ: 33-35 Đường D4, Khu Đô Thị Mới Him Lam, P.Tân Hưng, Q.7, HCM. <br />
-                Điện thoại: (84-8) 54 31 8717/18 <br />
+                Điện thoại: (84-8) 54 31 8717/492 <br />
                 Email: legomarketingteam@gmail.com </div>
             </div>
             <!--<div class="col-3">
@@ -55,8 +55,6 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-100617613-1', 'auto');
   ga('send', 'pageview');
-
 </script>

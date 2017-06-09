@@ -58,5 +58,13 @@ class NguoiChoi_5{
 		$query = array('_id' => new MongoId($this->id));
 		return $this->_collection->remove($query);
 	}
+
+	public function check_maso(){
+		$query = array('maso' => $this->maso, 'id_user' => new MongoId($this->id_user), 'loaidiem' => intval($this->loaidiem));
+		$field = array('_id' => true);
+		$result = $this->_collection->findOne($query, $field);
+		if(isset($result['_id']) && $result['_id']) return true;
+		else return false;
+	}
 }
 ?>

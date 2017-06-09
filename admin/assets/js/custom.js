@@ -31,12 +31,12 @@ function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
-/*function set_hienthi(){
-	$(".sethienthi").click(function(){
+function set_tinhtrang(){
+	$(".set_tinhtrang").click(function(){
 		var _this = $(this); var _link = $(this).attr("href");
 		$.get(_link, function(data){
-			_this.parent(".link_hienthi").html(data);
-			set_hienthi();
+			_this.parent("td").html(data);
+			set_tinhtrang();
 		});
 	});
-}*/
+}

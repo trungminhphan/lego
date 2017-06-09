@@ -67,13 +67,14 @@ if(isset($_POST['submit'])){
                     <div class="title-wrap">
                         <h4 class="title">ĐIỀN THÔNG TIN ĐĂNG KÝ</h4>
                         <span class="separator line-separator"></span>
-                    </div>                          
+                    </div>  
                 </div>
                 <?php if(isset($msg) && $msg): ?>
                 <div class="alert alert-red alert-dismissible" role="alert" style="background:#ffff00;color:#ffff00;">
                     <h5><strong><?php echo $msg; ?></strong></h5>
                 </div>
                 <?php endif; ?>
+                <h5 style="color:#ffff00;font-size:18px;font-weight:bold;font-family:Tahoma;font-style:normal;text-transform: none;">Số điện thoại của bạn sẽ là TÊN TÀI KHOẢN khi đăng nhập</h5>
                 <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data" id="register">
                     <div class="row">
                         <div class="form-group col-md-6">
