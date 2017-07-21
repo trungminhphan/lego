@@ -13,7 +13,7 @@ if($act == 'list'):
 $hs = $hiepsituan->get_one();
 ?>
 <?php if($hs['hiepsi']) : ?>
-<table class="table table-striped">
+<table id="data-table-1" class="table table-striped table-bordered table-hovered">
 	<thead>
 		<tr>
 			<th>STT</th>

@@ -67,8 +67,19 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
 <?php require_once('footer.php'); ?>
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
 <script src="assets/plugins/gritter/js/jquery.gritter.js"></script>
+<!--<script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+<script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>-->
 <script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
 <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/jszip.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
 <script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
@@ -83,7 +94,22 @@ $arr_user = sort_array_1($arr_user, 'diem', SORT_DESC);
             time:""
         });
         <?php endif; ?>
-        $("#data-table").DataTable({responsive:!0, "pageLength": 100, "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>'});
+        /*$("#data-table").DataTable({
+            responsive:!0, "pageLength": 100, "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
+            buttons: ['copy', 'excel', 'pdf']
+        });*/
+        $("#data-table").DataTable({
+            responsive:!0,
+            "pageLength": 100,
+            //dom:"Bfrtip",
+            dom: '<"top"Bfrtip<"clear">>rt<"bottom"iflp<"clear">>',
+            buttons:[
+                {extend:"excel",className:"btn-sm"},
+                {extend:"pdf",className:"btn-sm"},
+                {extend:"print",className:"btn-sm"}
+            ],
+        });
         App.init();
+
     });
 </script>

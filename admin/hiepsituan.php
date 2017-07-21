@@ -112,12 +112,23 @@ $list = $hiepsituan->get_all_list();
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
 <script src="assets/plugins/gritter/js/jquery.gritter.js"></script>
 <script src="assets/plugins/parsley/dist/parsley.js"></script>
-<script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+<!--<script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
 <script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
-<script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-<script src="assets/js/table-manage-default.demo.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>-->
 <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script src="assets/plugins/input-mask/jquery.inputmask.js"></script>
+<script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+<script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/jszip.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
+<script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+<script src="assets/js/table-manage-default.demo.min.js"></script>
 <script src="assets/js/apps.min.js"></script>
 <!-- ================== END PAGE LEVEL JS ================== -->
 <script>
@@ -126,6 +137,16 @@ $list = $hiepsituan->get_all_list();
             var _link = $(this).attr("href");
             $.get(_link, function(data){
                 $("#danhsachhiepsi").html(data);
+                $("#data-table-1").DataTable({
+                    responsive:!0,
+                    "pageLength": 20,
+                    dom:"Bfrtip",
+                    buttons:[
+                        {extend:"excel",className:"btn-sm"},
+                        {extend:"pdf",className:"btn-sm"},
+                        {extend:"print",className:"btn-sm"}
+                    ],
+                });
             });
         });
         $(".ngaythangnam").datepicker({todayHighlight:!0});
